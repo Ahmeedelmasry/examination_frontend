@@ -27,7 +27,7 @@ export default createStore({
     followingModule,
   },
   state: {
-    apiLink: "https://dark-tan-firefly-veil.cyclic.app",
+    apiLink: "https://poised-whale.cyclic.app",
     // apiLink: "http://localhost:3000",
     loginErr: null,
     loginData: null,

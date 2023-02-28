@@ -153,7 +153,7 @@
             </div>
           </div>
           <hr style="background-color: #848598; margin: -10px 20px 10px" />
-          <div class="upload-imgs">
+          <div class="upload-imgs" v-if="newUser.userRole == 'STUDENT'">
             <label
               class="d-block text-center"
               for="upload"
@@ -281,6 +281,14 @@ export default {
   computed: {
     ...mapState(["signupModule"]),
   },
+  watch: {
+    "newUser.userRole"(val) {
+      if (val == "INSTRUCTOR") {
+        this.images = [];
+        this.newUser.securityImgs = [];
+      }
+    },
+  },
   methods: {
     ...mapActions([
       "doValidateSignup",
@@ -324,7 +332,7 @@ export default {
       if (checkAuth) {
         this.$router.push("/");
       } else {
-        if (this.images.length < 3) {
+        if (this.images.length < 3 && this.newUser.userRole == "STUDENT") {
           this.checkImgsArr.isThreeImgs = false;
           this.checkImgsArr.errMsg = "You have to upload 3 images of your face";
           return;
@@ -341,7 +349,9 @@ export default {
             images: formData,
             email: this.newUser.email,
           };
-          await this.testUploadImgs(securImgs);
+          if (this.newUser.userRole == "STUDENT") {
+            await this.testUploadImgs(securImgs);
+          }
           document.querySelector(".sign-up .loading").style.cssText = `
             opacity: 0.7; visibility: visible
           `;
