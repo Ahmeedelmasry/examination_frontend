@@ -27,8 +27,8 @@ export default createStore({
     followingModule,
   },
   state: {
-    // apiLink: "https://exam-online-system.onrender.com",
-    apiLink: "http://localhost:3000",
+    apiLink: "https://exam-online-system.onrender.com",
+    // apiLink: "http://localhost:3000",
     loginErr: null,
     loginData: null,
     isAuthed: null,

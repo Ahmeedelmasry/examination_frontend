@@ -89,6 +89,7 @@ export default {
           firstData.forEach((exam) => {
             sortedArr.unshift(exam);
           });
+          console.log(firstData);
           context.commit("getExams", sortedArr);
         })
         .catch((err) => console.log(err));

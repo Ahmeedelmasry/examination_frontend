@@ -328,6 +328,9 @@ export default {
       this.newUser.securityImgs.splice(index, 1);
     },
     async getUserData() {
+      document.querySelector(".sign-up .loading").style.cssText = `
+            opacity: 0.7; visibility: visible
+          `;
       const checkAuth = await this.doCheckAuth(this.$store.state.apiLink);
       if (checkAuth) {
         this.$router.push("/");
@@ -352,9 +355,6 @@ export default {
           if (this.newUser.userRole == "STUDENT") {
             await this.testUploadImgs(securImgs);
           }
-          document.querySelector(".sign-up .loading").style.cssText = `
-            opacity: 0.7; visibility: visible
-          `;
           setTimeout(() => {
             document.querySelector(".sign-up .loading").style.cssText = `
               opacity: 0; visibility: hidden
