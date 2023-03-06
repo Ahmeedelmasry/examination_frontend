@@ -201,9 +201,7 @@ export default {
               "0";
             document.querySelector(".edit-profile .loading").style.visibility =
               "hidden";
-            setTimeout(() => {
-              location.reload();
-            }, 1000);
+            this.$router.push({ name: "TheProfile" });
           }, 1000);
         } else {
           const formData = new FormData();
@@ -231,9 +229,7 @@ export default {
               "0";
             document.querySelector(".edit-profile .loading").style.visibility =
               "hidden";
-            setTimeout(() => {
-              location.reload();
-            }, 1000);
+            this.$router.push({ name: "TheProfile" });
           }, 1000);
         }
       }

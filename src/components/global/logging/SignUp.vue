@@ -6,7 +6,7 @@
     </div>
     <div
       class="main"
-      :style="images.length > 0 ? `height: 139vh` : 'height: 110vh'"
+      :style="images.length > 0 ? `height: 170vh` : 'height: 129vh'"
     >
       <div class="signup position-relative">
         <form @submit.prevent="getUserData">
@@ -328,9 +328,6 @@ export default {
       this.newUser.securityImgs.splice(index, 1);
     },
     async getUserData() {
-      document.querySelector(".sign-up .loading").style.cssText = `
-            opacity: 0.7; visibility: visible
-          `;
       const checkAuth = await this.doCheckAuth(this.$store.state.apiLink);
       if (checkAuth) {
         this.$router.push("/");
@@ -344,6 +341,9 @@ export default {
         this.checkImgsArr.errMsg = "";
         await this.doValidateSignup(this.newUser);
         if (!this.signupModule.errors) {
+          document.querySelector(".sign-up .loading").style.cssText = `
+            opacity: 0.7; visibility: visible
+          `;
           const formData = new FormData();
           this.newUser.securityImgs.forEach((img) => {
             formData.append("image", img);

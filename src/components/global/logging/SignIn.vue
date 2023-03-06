@@ -207,8 +207,6 @@ export default {
       });
     },
     async signInFun() {
-      document.querySelector(".sign-in .loading").style.opacity = "0.7";
-      document.querySelector(".sign-in .loading").style.visibility = "visible";
       const checkAuth = await this.doCheckAuth(this.$store.state.apiLink);
       if (checkAuth) {
         this.$router.push("/");
@@ -216,6 +214,9 @@ export default {
         await this.checkUser(this.userData);
         if (this.$store.state.loginData) {
           if (this.$store.state.loginData.userRole == "INSTRUCTOR") {
+            document.querySelector(".sign-in .loading").style.opacity = "0.7";
+            document.querySelector(".sign-in .loading").style.visibility =
+              "visible";
             await fetch(
               `${this.$store.state.apiLink}/users/verify-img/${this.$store.state.loginData._id}/${this.$store.state.loginData.firstName}`,
               { method: "POST", credentials: "include" }
