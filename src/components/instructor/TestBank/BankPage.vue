@@ -17,18 +17,12 @@
           <h1>Exam Title</h1>
         </div>
         <div class="row">
-          <div
-            class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container"
-          >
+          <div class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container">
             <div class="side-ques-dad">
               <div class="side-block">
-                <div
-                  class="side-ques-row position-relative side-active"
-                  data-question=".question-block-1"
-                >
+                <div class="side-ques-row position-relative side-active" data-question=".question-block-1">
                   <p class="side-ques">
-                    <span class="side-ques-num">1</span
-                    ><i class="fa fa-arrow-right"></i> Question One
+                    <span class="side-ques-num">1</span><i class="fa fa-arrow-right"></i> Question One
                     <span class="options-block position-absolute">
                       <i class="fa fa-close options-icon d-none"></i>
                     </span>
@@ -40,25 +34,16 @@
               </div>
             </div>
           </div>
-          <div
-            class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1"
-          >
+          <div class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1">
             <div class="ques-tit-row">
-              <span class="ques-tit-num">1</span
-              ><i class="fa fa-arrow-right"></i>
-              <input
-                class="ques-tit"
-                placeholder="Write your question here.."
-              />
+              <span class="ques-tit-num">1</span><i class="fa fa-arrow-right"></i>
+              <input class="ques-tit" placeholder="Write your question here.." />
             </div>
             <div class="choices">
               <div class="ques-choise-row position-relative chosen-answer">
                 <span class="ques-choice-num">A</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i
-                  class="fa fa-close del-choice"
-                  style="pointer-events: none; opacity: 0.4"
-                ></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -66,10 +51,7 @@
               <div class="ques-choise-row position-relative">
                 <span class="ques-choice-num">B</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i
-                  class="fa fa-close del-choice"
-                  style="pointer-events: none; opacity: 0.4"
-                ></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -312,17 +294,14 @@ export default {
           this.numbers[i];
         sideRow.setAttribute(
           "data-question",
-          `.question-block-${
-            allSideRows[i].querySelector(".side-ques-num").innerHTML
+          `.question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
           }`
         );
         questNewBlock.classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${
-           allSideRows[i].querySelector(".side-ques-num").innerHTML
-         }`;
-        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${
-          allSideRows[i].querySelector(".side-ques-num").innerHTML
-        }`;
+         ques-container mt-3 question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
+          }`;
+        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${allSideRows[i].querySelector(".side-ques-num").innerHTML
+          }`;
       }
       if (allSideRows.length == 20) {
         document.querySelector(
@@ -651,17 +630,14 @@ export default {
 
               sideRows[i].setAttribute(
                 "data-question",
-                `.question-block-${
-                  sideRows[i].querySelector(".side-ques-num").innerHTML
+                `.question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
                 }`
               );
               allQueses[i].classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${
-           sideRows[i].querySelector(".side-ques-num").innerHTML
-         }`;
-              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${
-                sideRows[i].querySelector(".side-ques-num").innerHTML
-              }`;
+         ques-container mt-3 question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
+                }`;
+              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${sideRows[i].querySelector(".side-ques-num").innerHTML
+                }`;
             }
             sideRows.forEach((row) => {
               row.classList.remove("side-active");
@@ -719,6 +695,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
   .pop-overlay {
     width: 100%;
     z-index: -1;
@@ -726,8 +703,11 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: $bgColor;
+    background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG9ubGluZSUyMGVkdWNhdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60");
+    background-size: cover;
+    opacity: .9;
   }
+
   .dad {
     width: 50%;
     text-align: center;
@@ -735,11 +715,13 @@ export default {
     background-color: $mainColor;
     color: $titleColor;
     border-radius: 25px;
+
     h3 {
       font-size: 30px;
       font-weight: 900;
       margin-bottom: 20px;
     }
+
     input {
       outline: none;
       width: 94%;
@@ -751,24 +733,28 @@ export default {
       font-size: 25px;
       font-weight: 700;
       padding-bottom: 5px;
+      color: rgb(0, 0, 0);
     }
+
     button {
       width: 125px;
       height: 46px;
       border-radius: 15px;
       border: 1px solid $titleColor;
-      background: #55b0a4;
+      background: #883fb3;
       color: $titleColor;
       font-size: 25px;
       font-weight: 900;
-      opacity: 0.7;
+      opacity: 0.9;
     }
+
     button:hover {
       opacity: 1;
       background: #099e09;
     }
   }
 }
+
 .bank-page .exam-title {
   position: fixed;
   z-index: 1000;
@@ -777,14 +763,17 @@ export default {
   top: 120px;
   width: fit-content;
   z-index: 1;
+
   h1 {
     margin: 0 0 5px 0;
     text-align: center;
     font-size: 25px;
-    font-weight: 900;
-    color: $mainColor;
+    font-weight: 1000;
+    color: white;
+    font-family: cursive;
   }
 }
+
 .bank-page {
   ::-webkit-scrollbar-track {
     border-top-right-radius: 10px;
@@ -793,17 +782,22 @@ export default {
     margin-block: 2px;
     border-left: 1px solid rgb(206, 205, 205);
   }
+
   .side-ques-container {
-    background-color: white;
+    background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-size: cover;
+    opacity: .7;
     padding: 0;
     height: 82vh;
     padding-bottom: 20px;
     box-shadow: 0px 0px 7px -5px black;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+
     .side-block {
       padding-left: 1px;
     }
+
     .side-ques-row {
       display: flex;
       align-items: center;
@@ -811,10 +805,12 @@ export default {
       transition: 0.4s;
       margin-top: 1px;
       cursor: pointer;
+
       .side-ques {
         font-size: 10px;
         font-weight: 700;
         margin: 0;
+
         .side-ques-num {
           font-size: 12px;
           background-color: #797777;
@@ -826,15 +822,18 @@ export default {
           border-radius: 4px;
           font-weight: 700;
         }
+
         i {
           font-size: 10px;
           padding-left: 5px;
           padding-right: 5px;
         }
+
         .options-block {
           right: 10px;
           top: 50%;
           transform: translateY(-50%);
+
           .options-icon {
             font-size: 12px;
             transition: 0.2s;
@@ -843,12 +842,14 @@ export default {
         }
       }
     }
+
     //Side Active Classes
     .side-active {
       background-color: rgb(243, 240, 240);
       border-radius: 7px;
       outline: 1px solid #a5a3a3b5;
     }
+
     /////////////////////////
     .submit {
       width: 40px;
@@ -862,10 +863,12 @@ export default {
       text-align: center;
       transition: 0.3s;
       cursor: pointer;
+
       &:hover {
         opacity: 1;
       }
     }
+
     .submit .submit-btn {
       border: none;
       outline: none;
@@ -877,14 +880,16 @@ export default {
     }
   }
 }
+
 .bank-page .save-exam-div {
   position: fixed;
   bottom: 55px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+
   .save-exam {
-    background-color: $mainColor;
+    background-color: #883fb3;
     color: white;
     width: 200px;
     border: 1px solid $mainColor;
@@ -895,13 +900,20 @@ export default {
     transition: 0.3s;
     box-shadow: 0px 0px 10px -3px black;
     opacity: 0.6;
+    margin-bottom: 10px;
+
     &:hover {
-      opacity: 1;
+      transition: 12ms;
+    opacity: 1;
+    background-color: #099e09;
     }
   }
 }
+
 .bank-page .ques-container {
-  background-color: white;
+  background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  opacity: .7;
   height: 82vh;
   padding-top: 110px;
   padding-left: 100px;
@@ -914,17 +926,20 @@ export default {
 
   .ques-tit-row {
     margin-bottom: 20px;
+
     .ques-tit-num {
       font-size: 15px;
       font-weight: 700;
       color: $mainColor;
     }
+
     i {
       color: #197278;
       font-size: 10px;
       padding-left: 3px;
       padding-right: 10px;
     }
+
     input {
       border: none;
       outline: none;
@@ -934,14 +949,17 @@ export default {
       width: 80%;
       font-size: 20px;
       text-transform: capitalize;
+      color: rgb(255, 255, 255);
       font-weight: 700;
     }
+
     input::placeholder {
       font-size: 20px;
       font-style: italic;
       color: rgba(0, 0, 0, 0.326);
     }
   }
+
   .ques-choise-row {
     box-shadow: $mainColor 0px 0px 0px 1px inset;
     padding: 4px;
@@ -953,6 +971,7 @@ export default {
     display: flex;
     align-items: center;
     margin-left: 40px;
+
     input {
       border: none;
       outline: none;
@@ -961,7 +980,9 @@ export default {
       text-transform: capitalize;
       width: 100%;
       font-weight: 700;
+      color: white;
     }
+
     .ques-choice-num {
       font-size: 11px;
       border: none;
@@ -977,6 +998,7 @@ export default {
       padding: 4px 6px;
       font-weight: 700;
     }
+
     .del-choice {
       font-size: 12px;
       right: -5px;
@@ -991,11 +1013,13 @@ export default {
       cursor: pointer;
       display: none;
     }
+
     .correct-answer-div {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       right: -65px;
+
       i.correct-answer {
         border-radius: 50%;
         padding: 5px;
@@ -1006,6 +1030,7 @@ export default {
         cursor: pointer;
       }
     }
+
     input::placeholder {
       color: $mainColor;
       opacity: 0.7;
@@ -1014,42 +1039,50 @@ export default {
       font-weight: 700;
     }
   }
+
   .ques-choise-row.chosen-answer {
     box-shadow: #6fe16f 0px 0px 0px 2px inset;
     background-color: #5fd95f5f;
   }
+
   .ques-choise-row:hover .del-choice {
     display: flex;
   }
+
   .ques-choise-row:hover .correct-answer-div .correct-answer {
     opacity: 0.5 !important;
   }
+
   .ques-choise-row .correct-answer-div .correct-answer:hover {
     opacity: 1 !important;
   }
+
   .btns {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+
     .add-choice {
       border: none;
       outline: none;
       width: fit-content;
-      font-size: 16px;
-      font-weight: 500;
-      color: $mainColor;
+      font-size: 26px;
+      font-weight: 700;
+      color: rgb(173, 206, 239);
       margin-left: 40px;
       margin-top: 15px;
       background-color: transparent;
       letter-spacing: 1px;
       transition: 0.3s;
       margin-bottom: 50px;
+
     }
     .time-degree {
       display: flex;
       flex-direction: column;
       padding-right: 170px;
       padding-top: 10px;
+
       label {
         font-size: 16px;
         font-weight: 500;
@@ -1058,6 +1091,7 @@ export default {
         letter-spacing: 1px;
       }
     }
+
     input {
       margin-left: 10px;
       border: none;
@@ -1073,12 +1107,15 @@ export default {
       font-weight: 500;
       font-size: 14px;
     }
+
     input[name="time"] {
       margin-left: 30px;
     }
+
     .add-choice:hover {
       color: rgb(7, 58, 139);
     }
+
     .save-ques {
       border: none;
       outline: none;
@@ -1093,14 +1130,17 @@ export default {
       margin-right: 175px;
       transition: 0.3s;
     }
+
     .save-ques:hover {
       color: rgb(7, 58, 139);
     }
   }
+
   .trash-can:hover {
     opacity: 1;
   }
 }
+
 .bank-page .success {
   width: 100%;
   height: 100%;
@@ -1133,24 +1173,30 @@ export default {
   .bank-page .test-title-pop .dad {
     width: 70%;
   }
+
   .bank-page .ques-container .btns .time-degree {
     padding-right: 91px !important;
   }
+
   .bank-page .success .container p {
     font-size: 12px;
   }
 }
+
 @media (max-width: 767px) {
   .bank-page .exam-title {
     top: 90px;
   }
+
   .bank-page .save-exam-div .save-exam {
     font-size: 18px;
     width: 155px;
   }
+
   .bank-page .success .container {
     width: 60%;
   }
+
   .bank-page .side-ques-container {
     height: 14vh;
     overflow-y: unset !important;
@@ -1159,19 +1205,23 @@ export default {
     border-radius: unset;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+
     .side-ques-dad {
       box-shadow: 0px 0px 7px -5px black;
     }
+
     .side-block {
       display: flex;
       flex-wrap: wrap;
       overflow-y: scroll;
       height: 11vh;
+
       .side-ques-row {
         width: 33%;
         height: 45%;
       }
     }
+
     .submit {
       position: absolute;
       left: 50%;
@@ -1180,9 +1230,11 @@ export default {
       z-index: 20;
     }
   }
+
   .bank-page .side-ques-container .save-exam-div {
     bottom: 23px;
   }
+
   .bank-page .ques-container {
     padding-top: 72px;
     padding-left: 70px;
@@ -1190,120 +1242,154 @@ export default {
     border-radius: unset;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
     .ques-tit-row {
       margin-bottom: 0;
+
       input {
         font-size: 16px;
+
         &::placeholder {
           font-size: 16px;
         }
       }
     }
+
     .ques-choise-row {
       min-height: 30px;
       margin-top: 9px;
+
       .ques-choice-num {
         font-size: 9px;
         padding: 2px 5px;
       }
+
       input {
         font-size: 12px;
       }
+
       .correct-answer-div {
         right: -44px;
+
         i.correct-answer {
           padding: 2px !important;
         }
       }
     }
+
     .btns {
       margin-top: 0;
+
       .time-degree label {
         font-size: 12px;
       }
+
       .time-degree input {
         width: 50px;
         padding-top: 2px;
         padding-bottom: 4px;
         font-size: 12px;
       }
+
       .time-degree input[name="time"] {
         margin-left: 25px;
       }
     }
+
     .btns .add-choice {
       font-size: 13px;
     }
   }
+
   .bank-page .test-title-pop .dad {
     input {
       font-size: 20px;
     }
+
     h3 {
       font-size: 25px;
     }
+
     button {
       font-size: 20px;
     }
   }
 }
+
 @media (max-width: 660px) {
   .bank-page .ques-container .btns .save-ques {
     margin-right: 30px;
   }
 }
+
 @media (max-width: 530px) {
   .bank-page .side-ques-container .side-block .side-ques-row {
     width: 50%;
+
     .side-ques-num {
       font-size: 10px;
       width: 17px;
       height: 17px;
     }
+
     .success .container p {
       font-size: 10px;
     }
   }
+
   .bank-page .ques-container .btns button {
     font-size: 12px !important;
   }
+
   .bank-page .ques-container .ques-tit-row .ques-tit {
     font-size: 14px;
   }
+
   .bank-page .ques-container .ques-tit-row .ques-tit::placeholder {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.613);
   }
+
   .bank-page .ques-container .ques-choise-row .ques-choice-num {
     font-size: 9px;
   }
+
   .bank-page .ques-container .ques-choise-row input {
     font-size: 12px;
   }
+
   .bank-page .ques-container .ques-choise-row input::placeholder {
     color: rgba(4, 70, 175, 0.803);
     letter-spacing: 1px;
   }
+
   .bank-page .ques-container .btns input {
     font-size: 12px;
   }
+
   .bank-page .ques-container .btns .time-degree label {
     font-size: 12px;
   }
+
   .bank-page .ques-container .btns .time-degree input[name="time"] {
     margin-left: 24px !important;
   }
+
   .bank-page .ques-container .btns .time-degree {
     padding-right: 61px !important;
   }
+
   .bank-page .test-title-pop .dad {
     width: 90%;
+
     input {
       font-size: 16px;
     }
+
     h3 {
       font-size: 21px;
     }
+
     button {
       font-size: 16px;
       width: 85px;
@@ -1311,54 +1397,67 @@ export default {
     }
   }
 }
+
 @media (max-width: 470px) {
   .bank-page .side-ques-container {
     .side-ques-row {
       height: 34% !important;
     }
+
     .submit {
       bottom: -44px;
     }
+
     .side-block {
       height: 14vh;
     }
   }
+
   .bank-page .exam-title h1 {
     font-size: 16px;
   }
+
   .bank-page .ques-container {
     padding-left: 20px;
     padding-right: 5px;
     height: 50vh;
+
     .ques-choise-row {
       width: 81%;
       margin-left: 28px;
+
       .del-choice {
         font-size: 9px;
         width: 17px;
         height: 15px;
       }
     }
+
     .btns .time-degree {
       padding-right: 49px !important;
     }
   }
+
   .add-choice {
     margin-left: 29px !important;
   }
 }
+
 @media (max-width: 390px) {
   .bank-page {
     .side-ques-container .side-block .side-ques-row {
       width: 100%;
       margin: 10px 10px 5px 10px;
     }
+
     .ques-container {
       .btns .time-degree {
         padding-right: 30px !important;
       }
+
       .ques-choise-row .correct-answer-div {
         right: -26px;
+
         .correct-answer {
           font-size: 9px;
         }

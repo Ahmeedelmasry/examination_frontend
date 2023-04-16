@@ -6,69 +6,49 @@
       <!-- Profile Data -->
       <div class="profile-data mb-5 col-11 col-lg-7 mx-auto">
         <div class="the-img text-center">
-          <img
-            src="https://e.top4top.io/p_2363fihh21.jpg"
-            alt=""
-            style="
-              width: 200px;
-              height: 200px;
-              border-radius: 50%;
-              margin-bottom: 30px;
-            "
-            @click="showImg"
-          />
+          <img src="https://e.top4top.io/p_2363fihh21.jpg" alt="" style="
+                  width: 200px;
+                  height: 200px;
+                  border-radius: 50%;
+                  margin-bottom: 30px;
+                " @click="showImg" />
         </div>
         <div class="the-data">
-          <p
-            class="user-name text-center"
-            style="
-              font-size: 28px;
-              font-weight: 900;
-              text-transform: capitalize;
-            "
-          ></p>
-          <p
-            class="user-email text-center"
-            style="font-size: 28px; font-weight: 900"
-          ></p>
+          <p class="user-name text-center" style="
+                  font-size: 28px;
+                  font-weight: 900;
+                  text-transform: capitalize;
+                  color: white;
+                "></p>
+          <p class="user-email text-center" style="font-size: 28px; font-weight: 900; color: white;"></p>
         </div>
         <div class="follow text-center pt-3">
-          <button
-            v-if="followingModule.isFollowed"
-            class="follow-btn followed"
-            style="
-              background-color: #2a497d;
-              color: white;
-              transition: 0.3s all ease-in-out;
-              margin-top: 10px;
-              padding: 8px 30px;
-              border-radius: 10px;
-              border-color: #2a497d;
-              font-size: 25px;
-              font-weight: 900;
-              transition: 0.3s;
-            "
-            @click="followUser"
-          >
+          <button v-if="followingModule.isFollowed" class="follow-btn followed" style="
+                  background-color: #2a497d;
+                  color: white;
+                  transition: 0.3s all ease-in-out;
+                  margin-top: 10px;
+                  padding: 8px 30px;
+                  border-radius: 10px;
+                  border-color: #2a497d;
+                  font-size: 25px;
+                  font-weight: 900;
+                  transition: 0.3s;
+                " @click="followUser">
             Unfollow
           </button>
-          <button
-            v-else
-            class="'follow-btn'"
-            style="
-              background-color: #2a497d;
-              color: white;
-              transition: 0.3s all ease-in-out;
-              margin-top: 10px;
-              padding: 8px 30px;
-              border-radius: 10px;
-              border-color: #2a497d;
-              font-size: 25px;
-              font-weight: 900;
-              transition: 0.3s;
-            "
-            @click="followUser"
-          >
+          <button v-else class="'follow-btn'" style="
+                  background-color: #2a497d;
+                  color: white;
+                  transition: 0.3s all ease-in-out;
+                  margin-top: 10px;
+                  padding: 8px 30px;
+                  border-radius: 10px;
+                  border-color: #2a497d;
+                  font-size: 25px;
+                  font-weight: 900;
+                  transition: 0.3s;
+                " @click="followUser">
             follow
           </button>
         </div>
@@ -85,21 +65,12 @@
                 <p>There is no Exams available yet !</p>
               </div>
               <div class="row">
-                <div
-                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
-                  v-for="(exam, index) in getAllExams"
-                  :key="index"
-                >
+                <div class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" v-for="(exam, index) in getAllExams" :key="index">
                   <router-link to="/student-home">
-                    <div
-                      class="exam card pb-4 position-relative"
-                      style="width: 18rem"
-                    >
+                    <div class="exam card pb-4 position-relative" style="width: 18rem">
                       <img
-                        src="https://c.top4top.io/p_2374amip71.jpg"
-                        class="exam-img-top"
-                        alt="..."
-                      />
+                        src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
+                        class="exam-img-top" alt="..." />
                       <div class="exam-body card-body">
                         <h5 class="exam-title card-title">
                           {{ exam.title }}
@@ -113,16 +84,13 @@
                         <p class="exam-end-time">
                           End: {{ exam.endTimeAt.slice(0, 5) }}
                         </p>
-                        <p
-                          class="exam-status"
-                          :style="
-                            exam.status == 'Pending'
-                              ? 'color: orange'
-                              : exam.status == 'Closed'
+                        <p class="exam-status" :style="
+                          exam.status == 'Pending'
+                            ? 'color: orange'
+                            : exam.status == 'Closed'
                               ? 'color: indianred'
                               : 'color: #46b846'
-                          "
-                        >
+                        ">
                           {{ exam.status }}
                         </p>
                       </div>
@@ -156,18 +124,14 @@
       </div>
     </div>
     <div class="show-prof-img">
-      <span
-        style="
-          color: white;
-          position: absolute;
-          font-size: 25px;
-          top: 40px;
-          left: 40px;
-          cursor: pointer;
-        "
-        @click="closePhoto"
-        >X</span
-      >
+      <span style="
+              color: white;
+              position: absolute;
+              font-size: 25px;
+              top: 40px;
+              left: 40px;
+              cursor: pointer;
+            " @click="closePhoto">X</span>
       <div class="img-feild"></div>
     </div>
   </div>
@@ -367,27 +331,33 @@ export default {
 
 .search-preview {
   .profile-data {
-    background: white;
+    background-image: url("https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg");
     margin: auto;
     padding: 30px 0;
     border-radius: $bRadius;
+    opacity: .9;
+
     button {
       border-radius: $bRadius;
+
       &.followed {
         background-color: white !important;
         color: black !important;
         border-radius: $bRadius;
       }
     }
+
     .the-img img {
       cursor: pointer;
       object-fit: cover;
     }
   }
+
   a {
     text-decoration: none !important;
     color: unset !important;
   }
+
   .add-exam-div {
     position: relative;
     height: 75vh;
@@ -399,41 +369,51 @@ export default {
     width: 97%;
     margin-left: auto;
     margin-right: auto;
+
     .title h3 {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
       color: $titleColor;
     }
+
     .exams {
       height: 89%;
       overflow-y: auto;
       overflow-x: hidden;
       position: relative;
+      background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
+      background-size: cover;
+
       .empty-exams {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+
         p {
           font-style: italic;
           text-align: center;
-          font-size: 25px;
-          color: #8684849e;
+          font-size: 28px;
+          color: #650089c9;
           font-weight: 500;
+          background-color: white;
         }
       }
+
       .exam {
         border-radius: 7px !important;
         width: 100% !important;
         overflow: hidden;
         margin-bottom: 10px;
+
         img {
           height: 140px;
           width: 100%;
           object-fit: cover;
         }
+
         .exam-body {
           padding-left: 10px !important;
           padding-right: 10px !important;
@@ -444,29 +424,34 @@ export default {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
           .exam-title {
             font-size: 14px !important;
             font-weight: 500 !important;
             margin-bottom: 5px;
           }
+
           .exam-date {
             font-size: 10px !important;
             font-weight: 500 !important;
             color: indianred;
             margin-bottom: 3px;
           }
+
           .exam-start-time {
             font-size: 10px !important;
             font-weight: 500 !important;
             color: blue;
             margin-bottom: 3px;
           }
+
           .exam-end-time {
             font-size: 10px !important;
             font-weight: 500 !important;
             color: indianred;
             margin-bottom: 3px;
           }
+
           .exam-status {
             font-size: 10px;
             font-weight: 700;
@@ -486,6 +471,7 @@ export default {
       }
     }
   }
+
   .add-url-div {
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
@@ -497,47 +483,58 @@ export default {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+
     .title {
       background-color: $mainColor;
+
       h3 {
         font-size: 30px;
         font-weight: 900;
         color: $titleColor;
       }
     }
+
     .urls {
       height: 89%;
       overflow-y: auto;
       overflow-x: hidden;
       box-shadow: 0px 2px 6px -5px black;
       position: relative;
+      background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
+      background-size: cover;
+
       .empty-urls {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+
         p {
           font-style: italic;
           text-align: center;
-          font-size: 25px;
-          color: #8684849e;
+          font-size: 28px;
+          color: #650089c9;
           font-weight: 500;
+          background-color: white;
         }
       }
+
       li {
         margin-bottom: 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: $titleColor;
+        background: white;
         padding: 10px 20px;
         border-bottom: 1px solid black;
         border-top: 1px solid black;
+
         a {
           font-size: 15px;
           font-weight: 700;
         }
+
         button {
           font-size: 15px;
           transition: 0.2s;
@@ -553,6 +550,7 @@ export default {
           border: 1px solid $mainColor;
           outline: none;
         }
+
         .saved-link {
           background-color: white;
           color: black !important;
@@ -562,6 +560,7 @@ export default {
     }
   }
 }
+
 .search-preview .show-prof-img {
   width: 100%;
   height: 100%;
@@ -571,6 +570,7 @@ export default {
   z-index: 20000;
   display: none;
   background: rgba(0, 0, 0, 0.812);
+
   .img-feild {
     width: 47%;
     height: 100%;
@@ -583,15 +583,18 @@ export default {
     background-repeat: no-repeat;
   }
 }
+
 //Media Queries
 @media (max-width: 990px) {
   .search-preview .add-url-div .urls .empty-urls p {
     font-size: 19px;
   }
+
   .search-preview .add-exam-div .exams .empty-exams p {
     font-size: 19px;
   }
 }
+
 @media (max-width: 767px) {
   .search-preview {
     .profile-data {
@@ -599,49 +602,62 @@ export default {
         width: 150px !important;
         height: 150px !important;
       }
+
       p {
         font-size: 22px !important;
       }
+
       button {
         font-size: 13px !important;
       }
     }
+
     .add-exam-div {
       .title h3 {
         font-size: 17px;
       }
+
       .exams {
         height: 90%;
       }
+
       .exams .exam .exam-body {
         .exam-title {
           font-size: 11px !important;
         }
+
         .exam-time {
           font-size: 7px !important;
         }
+
         .exam-status {
           font-size: 7px;
         }
       }
     }
+
     .add-url-div {
       .title h3 {
         font-size: 17px;
       }
+
       .urls {
         height: 90%;
+
         li a {
           font-size: 12px;
         }
+
         li button {
           font-size: 12px !important;
         }
       }
+
       .add-url {
         font-size: 15px;
         padding: 7px 12px;
       }
+
       .write-url-div {
         input {
           padding-top: 2px;
@@ -649,6 +665,7 @@ export default {
           font-size: 12px;
           width: 100%;
         }
+
         button .confirm-url {
           width: 25px;
           height: 25px;
@@ -658,40 +675,51 @@ export default {
     }
   }
 }
+
 @media (max-width: 575px) {
   .search-preview {
     .profile-data {
       border-radius: 20px;
+
       .the-img img {
         width: 100px !important;
         height: 100px !important;
       }
+
       p {
         font-size: 17px !important;
       }
+
       button {
         font-size: 12px;
       }
     }
+
     margin-bottom: 20px;
+
     .add-exam-div {
       border-radius: 20px;
+
       .exams .empty-exams p {
         font-size: 15px;
       }
     }
+
     .add-url-div {
       height: 62vh;
       border-radius: 20px;
+
       .urls {
         .empty-urls p {
           font-size: 15px;
         }
       }
+
       .write-url-div {
         button {
           margin-top: 10px;
         }
+
         input {
           padding-top: 5px;
           padding-bottom: 7px;

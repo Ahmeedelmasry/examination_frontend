@@ -292,16 +292,18 @@ export default {
   .main-col {
     padding-bottom: 10px;
     box-shadow: 0px 0px 10px -7px black;
-    background: $bgColor;
+    background-image: url("https://png.pngtree.com/background/20211217/original/pngtree-royal-golden-blue-mandala-art-background-with-border-invitation-card-wedding-picture-image_1596347.jpg");
+    background-size: cover;
     border-radius: 30px;
     margin-top: 30px !important;
     border: 2px solid rgba(255, 255, 255, 0.148);
+   
   }
 
   input {
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: none;
     color: $titleColor;
     padding-left: 10px;
     text-transform: capitalize;
@@ -394,9 +396,10 @@ export default {
         font-size: 20px;
         font-weight: 900;
         width: 100%;
-        opacity: 0.6;
+        opacity: 0.9;
       }
       .edit:hover {
+        transition: 12ms;
         opacity: 1;
         background-color: #138f03ee;
       }
@@ -412,9 +415,10 @@ export default {
         font-size: 20px;
         font-weight: 900;
         width: 100%;
-        opacity: 0.6;
+        opacity: 0.9;
       }
       .back:hover {
+        transition: 12ms;
         opacity: 1;
         background-color: #e91313ee;
       }

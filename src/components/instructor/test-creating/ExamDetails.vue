@@ -682,7 +682,7 @@ export default {
     }
     input[type="date"] {
       margin-right: 40px;
-      width: 60%;
+      width: 65%;
       text-align: center;
       border: 2px solid $titleColor;
       border-radius: 10px;
@@ -697,7 +697,7 @@ export default {
     }
     input[type="time"] {
       margin-right: 40px;
-      width: 60%;
+      width: 55%;
       text-align: center;
       border: 2px solid $titleColor;
       border-radius: 10px;
@@ -722,7 +722,7 @@ export default {
       padding-top: 8px;
       padding-bottom: 8px;
       border: 1px solid $titleColor;
-      background-color: $mainColor;
+      background-color: #883fb3;
       color: $titleColor;
       border-radius: 12px;
       font-size: 25px;
@@ -734,7 +734,7 @@ export default {
       margin-top: 50px;
       transition: 0.2s;
       &:hover {
-        background-color: #192c4c;
+        background-color:#099e09 ;
       }
     }
   }
@@ -761,14 +761,17 @@ export default {
       height: 200px;
       border-radius: 50px;
       button {
-        background-color: $titleColor;
-        color: $mainColor;
+        background-color: #9a5de3c1;
+        color: rgb(0, 0, 0);
         border: 1px solid $titleColor;
         outline: none;
         padding: 10px;
         font-size: 25px;
         border-radius: 10px;
-        font-weight: 900;
+        font-weight: 700;
+      }
+      button:hover{
+        background-color: #099e09;
       }
     }
   }

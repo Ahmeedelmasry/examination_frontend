@@ -7,32 +7,15 @@
     <div class="search-feild position-absolute">
       <ul class="list-unstyled">
         <div v-if="this.searchUser.isExist" class="result">
-          <router-link
-            :to="`/search-preview/${this.searchUser.userId}`"
-            class="d-flex justify-content-evenly align-items-center"
-            @click="closeSearchPop(this.searchUser.userId)"
-          >
+          <router-link :to="`/search-preview/${this.searchUser.userId}`"
+            class="d-flex justify-content-evenly align-items-center" @click="closeSearchPop(this.searchUser.userId)">
             <img src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
             <li>{{ searchUser.firstName }} {{ searchUser.lastName }}</li>
           </router-link>
         </div>
         <div class="loading-search">
-          <svg
-            class="spinner"
-            width="65px"
-            height="65px"
-            viewBox="0 0 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              class="path"
-              fill="none"
-              stroke-width="6"
-              stroke-linecap="round"
-              cx="33"
-              cy="33"
-              r="30"
-            ></circle>
+          <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
           </svg>
         </div>
         <div class="no-result justify-content-center align-items-center p-3">
@@ -49,62 +32,37 @@
         </div>
         <div class="col-5">
           <div class="logo text-center">
-            <img
-              src="@/assets/home/large.png"
-              alt=""
-              @click="goHomePage(checkAuthen)"
-            />
+            <img src="@/assets/home/large.png" alt="" @click="goHomePage(checkAuthen)" />
           </div>
         </div>
         <div class="col-4">
           <div class="logout text-right">
             <div class="the-icons position-relative pr-lg-3">
               <div class="position-relative mr-4 pr-2">
-                <i
-                  class="fa fa-bell"
-                  style="cursor: pointer"
-                  @click="openNotifications"
-                ></i>
-                <span
-                  class="position-absolute badge badge-light"
-                  style="
-                    left: 15px;
-                    bottom: 14px;
-                    z-index: 1;
-                    background: indianred;
-                    color: white;
-                    font-size: 15px;
-                    border-radius: 6px;
-                  "
-                  v-if="newNotifiNum > 0"
-                  >{{ newNotifiNum }}</span
-                >
+                <i class="fa fa-bell" style="cursor: pointer" @click="openNotifications"></i>
+                <span class="position-absolute badge badge-light" style="
+                        left: 15px;
+                        bottom: 14px;
+                        z-index: 1;
+                        background: indianred;
+                        color: white;
+                        font-size: 15px;
+                        border-radius: 6px;
+                      " v-if="newNotifiNum > 0">{{ newNotifiNum }}</span>
                 <div class="show-notifs">
                   <ul>
-                    <li
-                      class="empty"
-                      v-if="notifications == '' || notifications == []"
-                      style="
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 90px;
-                        font-size: 20px;
-                        color: #797575;
-                      "
-                    >
+                    <li class="empty" v-if="notifications == '' || notifications == []" style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 90px;
+                            font-size: 20px;
+                            color: #797575;
+                          ">
                       No Notifications Yet!
                     </li>
-                    <li
-                      v-for="notif in notifications"
-                      :key="notif._id"
-                      :class="notif.isRead == false && 'is-read'"
-                    >
-                      <img
-                        v-if="!notif.profileImg"
-                        src="https://e.top4top.io/p_2363fihh21.jpg"
-                        alt=""
-                      />
+                    <li v-for="notif in notifications" :key="notif._id" :class="notif.isRead == false && 'is-read'">
+                      <img v-if="!notif.profileImg" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
                       <img v-else :src="notif.profileImg" alt="" />
                       {{ notif.firstName }} {{ notif.lastName }}
                       {{ notif.message }}
@@ -117,11 +75,7 @@
                 <img v-else src="../../../assets/home/download.png" alt="" />
               </router-link>
 
-              <i
-                class="fa fa-arrow-right-from-bracket"
-                style="cursor: pointer"
-                @click="logOut"
-              ></i>
+              <i class="fa fa-arrow-right-from-bracket" style="cursor: pointer" @click="logOut"></i>
             </div>
           </div>
         </div>
@@ -130,16 +84,8 @@
     <hr />
     <div class="search position-relative">
       <form action="" @submit.prevent="getSearchResult">
-        <input
-          type="email"
-          name="email"
-          placeholder="Search"
-          class="w-100 pl-4"
-          required
-          @blur="closeSearchDiv"
-          @keydown="closeSearchDiv"
-          v-model="email"
-        />
+        <input type="email" name="email" placeholder="Search" class="w-100 pl-4" required @blur="closeSearchDiv"
+          @keydown="closeSearchDiv" v-model="email" />
         <button class="position-absolute">
           <i class="fa fa-search"></i>
         </button>
@@ -148,33 +94,27 @@
     <div class="overlay" @click="closeSideBar"></div>
     <div class="toggle-menu">
       <ul class="list-unstyled">
-        <router-link
-          :to="
-            checkAuthen.userRole == 'STUDENT'
-              ? '/student-home'
-              : '/instructor-home'
-          "
-        >
-          <li><i class="fa fa-home"></i>Homepage</li></router-link
-        >
+        <router-link :to="
+          checkAuthen.userRole == 'STUDENT'
+            ? '/student-home'
+            : '/instructor-home'
+        ">
+          <li><i class="fa fa-home"></i>Homepage</li>
+        </router-link>
         <hr />
-        <router-link to="/profile"
-          ><li><i class="fa fa-user"></i>Profile</li></router-link
-        >
+        <router-link to="/profile">
+          <li><i class="fa fa-user"></i>Profile</li>
+        </router-link>
         <hr />
-        <router-link to="/subjects-home" class="subjects-link"
-          ><li><i class="fa fa-file"></i>Subjects</li></router-link
-        >
+        <router-link to="/subjects-home" class="subjects-link">
+          <li><i class="fa fa-file"></i>Subjects</li>
+        </router-link>
         <hr />
-        <a href="#" @click="logOut"
-          ><li>
-            <i
-              style="transform: rotateZ(180deg); padding-left: 21px"
-              class="fa fa-arrow-right-from-bracket"
-            ></i
-            >Logout
-          </li></a
-        >
+        <a href="#" @click="logOut">
+          <li>
+            <i style="transform: rotateZ(180deg); padding-left: 21px" class="fa fa-arrow-right-from-bracket"></i>Logout
+          </li>
+        </a>
         <hr />
       </ul>
     </div>
@@ -371,10 +311,12 @@ export default {
 
 <style lang="scss">
 @import "../../../assets/sass/main.scss";
+
 .the-nav a {
   text-decoration: none !important;
   color: #000 !important;
 }
+
 body {
   width: 100%;
 }
@@ -387,10 +329,12 @@ body {
   top: 0;
   z-index: 1001;
   box-shadow: 0px 0px 11px -4px #0000007a;
+
   .loading {
     visibility: hidden;
     opacity: 0;
   }
+
   .loading-search {
     width: 100%;
     height: 100%;
@@ -401,6 +345,7 @@ body {
     justify-content: center;
     align-items: center;
     display: none;
+
     svg {
       width: 35px;
     }
@@ -469,39 +414,47 @@ body {
     }
   }
 }
+
 @media (max-width: 1210px) {
   .the-nav {
     display: block;
   }
 }
+
 @media (max-width: 767px) {
   .the-nav .row {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
 }
+
 @media (max-width: 500px) {
   .the-nav .container-fluid {
     padding-right: 15px !important;
     padding-left: 15px !important;
   }
 }
+
 .the-nav .menu i {
   font-size: 30px;
   cursor: pointer;
   color: rgb(255, 250, 250);
-  opacity: 0.7;
+  opacity: 0.9;
+  transition: .4s;
 }
+
 .the-nav .menu i:hover {
   opacity: 1;
   color: #000;
-  font-size: 35px;
+  transform: scale(1.5)
 }
+
 @media (max-width: 575px) {
   .the-nav .menu i {
     font-size: 20px;
   }
 }
+
 .the-nav .logo img {
   width: 100px;
 }
@@ -511,11 +464,13 @@ body {
     width: 75px;
   }
 }
+
 .the-nav .logout .the-icons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 .the-nav .logout img {
   width: 40px;
   height: 40px;
@@ -523,40 +478,50 @@ body {
   margin-right: 30px;
   object-fit: cover;
 }
+
 @media (max-width: 575px) {
   .the-nav .logout img {
     width: 25px;
     height: 25px;
   }
 }
+
 .the-nav .logout i {
   font-size: 30px;
-  color: white;
-  opacity: 0.7;
+  cursor: pointer;
+  color: rgb(255, 250, 250);
+  opacity: 0.9;
+  transition: .4s;
 }
+
 .the-nav .logout i:hover {
   opacity: 1;
-  font-size: 40px;
   color: #000;
+  transform: scale(1.5)
 }
+
 @media (max-width: 575px) {
   .the-nav .logout i {
     font-size: 18px;
   }
 }
+
 .the-nav hr {
   margin: 0 !important;
   padding: 0;
   width: 100% !important;
   height: unset !important;
 }
+
 .the-nav .search {
   &.show {
     display: block;
   }
+
   &.hide {
     display: none;
   }
+
   input {
     border: none;
     outline: none;
@@ -564,12 +529,14 @@ body {
     font-size: 18px;
   }
 }
+
 .the-nav .search input::placeholder {
   font-size: 17px;
   font-style: italic;
   letter-spacing: 1px;
   color: rgba(0, 0, 0, 0.488);
 }
+
 .the-nav .search button {
   right: 40px;
   right: 40px;
@@ -579,6 +546,7 @@ body {
   outline: unset;
   background-color: transparent;
 }
+
 .the-nav .overlay {
   width: 100%;
   height: 100%;
@@ -589,7 +557,9 @@ body {
   display: none;
   position: fixed;
   z-index: 20;
+
 }
+
 .the-nav .toggle-menu {
   position: fixed;
   width: 350px;
@@ -603,14 +573,17 @@ body {
   left: -360px;
   transition: 0.4s;
 }
+
 @media (max-width: 500px) {
   .the-nav .toggle-menu {
     width: 60%;
   }
 }
+
 .the-nav .toggle-menu ul {
   padding: 50px 20px 30px;
 }
+
 .the-nav .toggle-menu ul li {
   padding: 6px 18px;
   font-weight: 700;
@@ -619,13 +592,16 @@ body {
   margin-bottom: 20px;
   transition: 0.2s;
   color: #c4d0df;
+
   i {
     width: 40px;
   }
+
   &:hover {
     background-color: #152948;
   }
 }
+
 .the-nav .show-notifs {
   position: absolute;
   left: 50%;
@@ -641,13 +617,16 @@ body {
   opacity: 0;
   transition: 0.2s all ease-in-out;
   z-index: 1;
+
   &.active {
     visibility: visible;
     opacity: 1;
   }
+
   ul {
     width: 250px;
     transition: 0.5s;
+
     img {
       height: 35px;
       width: 35px;
@@ -655,6 +634,7 @@ body {
       margin-right: 11px;
       border-radius: 50%;
     }
+
     li {
       padding: 7px 0;
       font-weight: 500;
@@ -666,6 +646,7 @@ body {
       align-items: center;
       text-transform: capitalize;
       word-break: break-all;
+
       &.is-read {
         background-color: #bedbe7;
       }
@@ -677,18 +658,22 @@ body {
   max-height: 321px !important;
   overflow: auto !important;
 }
+
 @media (max-width: 500px) {
   .the-nav .toggle-menu ul li {
     font-size: 13px;
   }
 }
+
 .the-nav .toggle-menu ul.notifications {
   padding-left: 0;
   padding-right: 0;
+
   li {
     padding-right: 10px;
     padding-left: 10px;
   }
+
   p {
     text-align: center;
     padding: 28px 0px;
@@ -704,19 +689,23 @@ body {
     border-bottom-left-radius: 16px;
   }
 }
+
 @media (max-width: 500px) {
   .the-nav .toggle-menu ul.notifications {
     li {
       font-size: 9px;
     }
+
     p {
       font-size: 12px;
     }
   }
 }
+
 .the-nav .toggle-menu {
   .notifi-link-div {
     cursor: pointer;
+
     span {
       background-color: #ea6767ba;
       border-radius: 50%;
@@ -730,6 +719,7 @@ body {
     }
   }
 }
+
 .the-nav .search-feild {
   width: 50%;
   height: 0;
@@ -743,15 +733,20 @@ body {
   box-shadow: 0px 5px 10px -7px #7c7c7c;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
+
   .no-result {
     display: none;
   }
+
   .result {
     display: none;
+
     a {
       width: fit-content;
     }
+
     padding: 20px;
+
     img {
       width: 30px;
       height: 30px;
@@ -760,6 +755,7 @@ body {
     }
   }
 }
+
 @media (max-width: 660px) {
   .the-nav .search-feild {
     width: 70%;

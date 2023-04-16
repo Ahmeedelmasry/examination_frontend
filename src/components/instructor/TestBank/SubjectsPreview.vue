@@ -4,7 +4,7 @@
     <TheLoading />
     <div class="container-fluid">
       <div class="exam-title">
-        <h1 class="text-center">{{ SubjectPreview.subjData.title }}</h1>
+      <h1 class="text-center">{{  SubjectPreview.subjData.title }}</h1>
       </div>
       <div class="row">
         <div
@@ -90,10 +90,11 @@ export default {
 
 .subject-preview .exam-title h1 {
   color: white;
-  border-bottom: 1px solid $titleColor;
+  border-bottom: 8px solid #a55ec1e2;
   font-weight: 900;
   margin: 20px auto;
   width: fit-content;
+  background-color:#a55ec1e2;
 }
 .subject-preview .ques-container {
   padding-top: 60px;
@@ -156,10 +157,10 @@ export default {
       font-size: 11px;
       border: none;
       outline: none;
-      color: rgb(39, 39, 253);
+      color: rgb(0, 0, 0);
       font-weight: 500;
-      background-color: $titleColor;
-      border: 1px solid rgb(39, 39, 253);
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(23, 23, 46);
       border-radius: 4px;
       padding: 0;
       margin-left: 5px;

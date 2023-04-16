@@ -155,11 +155,11 @@ export default {
   margin-right: auto;
   margin-left: auto;
   color: rgb(255, 255, 250);
-  opacity: 0.7;
+
   .info-block {
     margin-bottom: 40px;
     button {
-      background-color: #4eba447d;
+      background-color: #883fb3;
       color: $titleColor;
       transition: 0.3s;
       margin-top: 10px;
@@ -171,7 +171,8 @@ export default {
       letter-spacing: 1px;
     }
     button:hover {
-      background-color: #1dea12;
+      transition: 12ms;
+      background-color: #099e09;
     }
   }
   span {
@@ -191,6 +192,9 @@ export default {
   border: 2px solid rgba(255, 255, 255, 0.148);
   background: $bgColor;
   border-radius: 30px;
+  background-image: url("https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg");
+  background-size: cover;
+  opacity: .85;
 }
 .profile .show-prof-img {
   width: 100%;
@@ -217,7 +221,8 @@ export default {
 //Media Queries
 @media (max-width: 990px) {
   .profile .info span {
-    font-size: 21px;
+    font-size: 25px;
+    color: white;
   }
   .profile .info .info-block button {
     font-size: 20px;

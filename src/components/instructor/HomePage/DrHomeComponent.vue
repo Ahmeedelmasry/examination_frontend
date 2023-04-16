@@ -11,31 +11,16 @@
               <h3 class="text-center py-3">Recent Exams</h3>
             </div>
             <div class="exams px-3">
-              <div
-                class="empty-exams"
-                v-if="getAllExams == '' || getAllExams == {}"
-              >
+              <div class="empty-exams" v-if="getAllExams == '' || getAllExams == {}">
                 <p>There is no Exams added yet !</p>
               </div>
               <div class="row">
-                <div
-                  v-for="exam in getAllExams"
-                  :key="exam.id"
-                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
-                  :id="exam.id"
-                  :data-time="exam.time"
-                  :data-degree="exam.totalDegree"
-                >
-                  <div
-                    class="exam card pb-4 position-relative"
-                    style="width: 18rem"
-                  >
+                <div v-for="exam in getAllExams" :key="exam.id" class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
+                  :id="exam.id" :data-time="exam.time" :data-degree="exam.totalDegree">
+                  <div class="exam card pb-4 position-relative" style="width: 18rem">
                     <img
-                      src="@/assets/exam.jpg"
-                      class="exam-img-top"
-                      alt="..."
-                      @click="previewExam(exam._id)"
-                    />
+                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
+                      class="exam-img-top" alt="..." @click="previewExam(exam._id)" />
                     <div class="exam-body card-body">
                       <div class="d-flex align-items-center">
                         <h5 class="exam-title card-title">
@@ -46,63 +31,34 @@
                         <span class="month">{{ exam.startDate }}</span>
                       </p>
                       <p class="exam-start-time d-flex align-items-center">
-                        <span class="exam-start-time"
-                          >start: {{ exam.startTimeAt.slice(0, 5) }}</span
-                        >
+                        <span class="exam-start-time">start: {{ exam.startTimeAt.slice(0, 5) }}</span>
                       </p>
                       <p class="exam-end-time mb-1">
                         <span>End: {{ exam.endTimeAt.slice(0, 5) }}</span>
                       </p>
-                      <p
-                        v-if="exam.status == 'Closed'"
-                        class="exam-status"
-                        style="color: indianred"
-                      >
+                      <p v-if="exam.status == 'Closed'" class="exam-status" style="color: indianred">
                         {{ exam.status }}
                       </p>
-                      <p
-                        v-else-if="exam.status == 'Pending'"
-                        class="exam-status"
-                        style="color: orange"
-                      >
+                      <p v-else-if="exam.status == 'Pending'" class="exam-status" style="color: orange">
                         {{ exam.status }}
                       </p>
                       <p v-else class="exam-status">
                         {{ exam.status }}
                       </p>
                     </div>
-                    <div
-                      v-if="exam.status == 'Closed'"
-                      class="show-result d-flex justify-content-center"
-                    >
+                    <div v-if="exam.status == 'Closed'" class="show-result d-flex justify-content-center">
                       <button @click="getResults(exam._id)" class="mr-1">
                         Results
                       </button>
-                      <button
-                        @click="openExamAlert(exam._id)"
-                        class="ml-1"
-                        style="background-color: indianred"
-                      >
+                      <button @click="openExamAlert(exam._id)" class="ml-1" style="background-color: indianred">
                         Delete
                       </button>
                     </div>
-                    <div
-                      v-if="exam.status != 'Closed'"
-                      class="share-delete-div position-absolute"
-                    >
-                      <i
-                        class="fa fa-trash-can delete-exam-btn"
-                        style="cursor: pointer"
-                        @click="openExamAlert(exam._id)"
-                        v-if="exam.status != 'Open'"
-                        title="Delete Exam"
-                      ></i>
-                      <i
-                        class="fa fa-share-nodes share-exam-btn"
-                        style="cursor: pointer"
-                        @click="openSharePop(exam)"
-                        title="Share Exam"
-                      ></i>
+                    <div v-if="exam.status != 'Closed'" class="share-delete-div position-absolute">
+                      <i class="fa fa-trash-can delete-exam-btn" style="cursor: pointer" @click="openExamAlert(exam._id)"
+                        v-if="exam.status != 'Open'" title="Delete Exam"></i>
+                      <i class="fa fa-share-nodes share-exam-btn" style="cursor: pointer" @click="openSharePop(exam)"
+                        title="Share Exam"></i>
                     </div>
                   </div>
                 </div>
@@ -111,13 +67,11 @@
                 <div class="share-popup">
                   <div class="overlay" @click="closeSharePop"></div>
                   <div class="students-div">
-                    <div
-                      style="
-                        display: flex;
-                        flex-direction: row-reverse;
-                        align-items: center;
-                      "
-                    >
+                    <div style="
+                            display: flex;
+                            flex-direction: row-reverse;
+                            align-items: center;
+                          ">
                       <div v-if="this.followers.length > 0" class="select-all">
                         <p class="text-right" @click="selectAllStudents">
                           Select All
@@ -125,18 +79,9 @@
                       </div>
                       <div class="d-flex pl-4 mr-auto pt-3" style="gap: 10px">
                         <div class="d-flex flex-column">
-                          <label
-                            style="font-size: 13px; margin-bottom: 3px"
-                            for="grade_no"
-                            >Grade</label
-                          >
-                          <select
-                            name="grade_no"
-                            id="grade_no"
-                            style="padding: 5px 10px; border-radius: 3px"
-                            v-model="gradeNo"
-                            @change="filterStudents"
-                          >
+                          <label style="font-size: 13px; margin-bottom: 3px" for="grade_no">Grade</label>
+                          <select name="grade_no" id="grade_no" style="padding: 5px 10px; border-radius: 3px"
+                            v-model="gradeNo" @change="filterStudents">
                             <option value="all">All Grades</option>
                             <option value="first">First Grade</option>
                             <option value="second">Second Grade</option>
@@ -145,19 +90,9 @@
                           </select>
                         </div>
                         <div class="d-flex flex-column">
-                          <label
-                            for="section_no"
-                            style="font-size: 13px; margin-bottom: 3px"
-                            >Section</label
-                          >
-                          <select
-                            style="padding: 5px 10px; border-radius: 3px"
-                            name="section_no"
-                            id="section_no"
-                            v-model="sectionNo"
-                            :disabled="gradeNo == 'all'"
-                            @change="filterStudents"
-                          >
+                          <label for="section_no" style="font-size: 13px; margin-bottom: 3px">Section</label>
+                          <select style="padding: 5px 10px; border-radius: 3px" name="section_no" id="section_no"
+                            v-model="sectionNo" :disabled="gradeNo == 'all'" @change="filterStudents">
                             <option value="all">All Sections</option>
                             <option value="no1">section 1</option>
                             <option value="no2">section 2</option>
@@ -184,36 +119,20 @@
                       </div>
                     </div>
                     <ul class="list-unstyled">
-                      <li
-                        v-for="follower in this.followers"
-                        :key="follower._id"
-                      >
+                      <li v-for="follower in this.followers" :key="follower._id">
                         <div class="student-data">
-                          <img
-                            v-if="!follower.profileImg"
-                            src="https://d.top4top.io/p_2373dflq31.png"
-                            alt=""
-                          />
+                          <img v-if="!follower.profileImg" src="https://d.top4top.io/p_2373dflq31.png" alt="" />
                           <img v-else :src="follower.profileImg" alt="" />
-                          <span class="student"
-                            >{{ follower.firstName }}
-                            {{ follower.lastName }}</span
-                          >
+                          <span class="student">{{ follower.firstName }}
+                            {{ follower.lastName }}</span>
                         </div>
-                        <input
-                          type="checkbox"
-                          :value="follower.studentId"
-                          @change="selectStudent"
-                        />
+                        <input type="checkbox" :value="follower.studentId" @change="selectStudent" />
                       </li>
                       <div v-if="this.followers.length > 0" class="submit">
                         <button>Send</button>
                       </div>
                     </ul>
-                    <div
-                      v-if="!this.followers.length > 0"
-                      class="empty-students"
-                    >
+                    <div v-if="!this.followers.length > 0" class="empty-students">
                       <p>No Student Available!</p>
                     </div>
                   </div>
@@ -221,10 +140,7 @@
               </form>
             </div>
             <router-link to="exam-details">
-              <i
-                style="pointer-events: painted"
-                class="fa fa-plus create-exam"
-              ></i>
+              <i class="fa fa-plus create-exam"></i>
             </router-link>
           </div>
         </div>
@@ -239,27 +155,18 @@
                   There is no Urls added yet !
                 </p>
               </div>
-              <ul
-                class="list-unstyled"
-                v-if="this.allUrls != '' || this.allUrls != {}"
-              >
+              <ul class="list-unstyled" v-if="this.allUrls != '' || this.allUrls != {}">
                 <li v-for="(url, index) in this.allUrls" :key="index">
                   <a :href="url.link" target="_blank">{{ url.desc }}</a>
                   <i class="fa fa-close" @click="deleteUrl(url._id)"></i>
                 </li>
               </ul>
             </div>
-            <i
-              style="pointer-events: painted"
-              class="fa fa-plus add-url"
-              @click="openAddUrl"
-            ></i>
+            <i class="fa fa-plus add-url" @click="openAddUrl"></i>
             <form @submit.prevent="addNewUrl" class="pl-3">
               <div class="write-url-div p-3 pt-1 position-relative">
-                <span class="url-repeat-err position-absolute"
-                  ><span class="yellow position-absolute"></span> Url already
-                  exists!</span
-                >
+                <span class="url-repeat-err position-absolute"><span class="yellow position-absolute"></span> Url already
+                  exists!</span>
                 <label for="url">
                   Enter URL
                   <input type="url" name="url" required v-model="url" />
@@ -268,10 +175,7 @@
                   Enter Title
                   <input type="text" name="title" required v-model="urlTitle" />
                 </label>
-                <div
-                  class="d-flex justify-content-center align-items-center"
-                  style="gap: 10px"
-                >
+                <div class="d-flex justify-content-center align-items-center" style="gap: 10px">
                   <button>
                     <i class="fa fa-check confirm-url"></i>
                   </button>
@@ -693,18 +597,20 @@ export default {
     width: 97%;
     margin-left: auto;
     margin-right: auto;
+    background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
+    background-size: contain;
 
     .title h3 {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
-      color: $titleColor;
+      color: black;
       margin-bottom: 0;
     }
 
     .exams {
-      padding-top: 5px;
-      margin-top: 3px;
+      background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
+      background-size: cover;
       max-height: 47vh;
       min-height: 47vh;
       overflow-y: auto;
@@ -761,8 +667,9 @@ export default {
           font-style: italic;
           text-align: center;
           font-size: 25px;
-          color: #8684849e;
+          color: #650089c9;
           font-weight: 500;
+          background-color: #ffffff;
         }
       }
 
@@ -858,11 +765,11 @@ export default {
       }
 
       .exam {
-        border-radius: 7px !important;
+        border-radius: 20px !important;
         width: 100% !important;
         overflow: hidden;
-        margin-bottom: 10px;
-        height: 290px;
+        margin-bottom: 50px;
+        height: 305px;
 
         img {
           height: 120px;
@@ -938,6 +845,7 @@ export default {
       color: white;
       padding: 10px;
       border-radius: 11px;
+
       &:hover {
         opacity: 1;
         color: #6c4380;
@@ -956,6 +864,8 @@ export default {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
+    background-size: contain;
 
     .title {
       background-color: $mainColor;
@@ -963,7 +873,7 @@ export default {
       h3 {
         font-size: 30px;
         font-weight: 900;
-        color: $titleColor;
+        color: black;
       }
     }
 
@@ -974,6 +884,8 @@ export default {
       overflow-x: hidden;
       border-bottom: 13px solid $mainColor;
       position: relative;
+      background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
+      background-size: cover;
 
       .empty-urls {
         position: absolute;
@@ -986,8 +898,9 @@ export default {
           font-style: italic;
           text-align: center;
           font-size: 25px;
-          color: #8684849e;
+          color: #650089c9;
           font-weight: 500;
+          background-color: #ffffff;
         }
       }
 
@@ -1045,6 +958,7 @@ export default {
       padding: 10px;
       border-radius: 11px;
       cursor: pointer;
+
       &:hover {
         opacity: 1;
         color: #6c4380;
@@ -1056,13 +970,14 @@ export default {
       display: none;
 
       label {
-        font-size: 11px;
+        font-size: 18px;
         font-weight: 500;
         margin-bottom: 10px;
         width: 90%;
         margin-left: auto !important;
         margin-right: auto !important;
         display: block;
+        color: white;
       }
 
       input {
@@ -1071,8 +986,8 @@ export default {
         border: none;
         outline: none;
         padding-left: 15px;
-        color: rgb(45, 104, 198);
-        box-shadow: #197278 0px 0px 0px 1px inset;
+        color: rgb(235, 216, 237);
+        box-shadow: #c0f1f5 0px 0px 0px 1px inset;
         background-color: transparent;
         border-radius: 3px;
         padding-top: 4px;
@@ -1101,6 +1016,7 @@ export default {
             background-color: rgba(0, 128, 0, 0.653);
           }
         }
+
         .close-url {
           background-color: rgba(205, 92, 92, 0.73);
           width: 30px;
@@ -1160,8 +1076,7 @@ export default {
           left: 4%;
           top: -25px;
           border: 12px solid;
-          border-color: transparent transparent
-            rgba(118, 118, 118, 0.4392156863) transparent;
+          border-color: transparent transparent rgba(118, 118, 118, 0.4392156863) transparent;
         }
       }
     }
@@ -1188,6 +1103,7 @@ export default {
 
 //Media Queries
 @media (max-width: 990px) {
+
   .dr-home .add-exam-div,
   .dr-home .add-url-div {
     width: 100%;
@@ -1264,9 +1180,7 @@ export default {
         }
       }
 
-      .add-url {
-        width: 25px;
-      }
+
 
       .write-url-div {
         input {
@@ -1341,7 +1255,7 @@ export default {
         min-height: 30vh;
 
         .empty-urls p {
-          font-size: 15px;
+          font-size: 18px;
         }
       }
 
@@ -1395,5 +1309,4 @@ export default {
       font-size: 11px !important;
     }
   }
-}
-</style>
+}</style>

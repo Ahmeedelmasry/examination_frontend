@@ -8,31 +8,14 @@
       <div class="signup position-relative">
         <form @submit.prevent="signInFun">
           <label for="chk" aria-hidden="true">Login</label>
-          <input
-            type="email"
-            v-model="userData.email"
-            name="email"
-            placeholder="Email"
-            class="email"
-            required
-          />
+          <input type="email" v-model="userData.email" name="email" placeholder="Email" class="email" required />
           <span class="err" v-if="$store.state.loginErr">{{
             $store.state.loginErr.email
           }}</span>
           <div class="pass-dad">
-            <input
-              required
-              :type="showPass ? 'text' : 'password'"
-              v-model="userData.pass"
-              name="pswd"
-              placeholder="Password"
-              class="pass"
-            />
-            <i
-              class="fa fa-eye-slash"
-              @click="showPass = !showPass"
-              v-if="showPass"
-            ></i>
+            <input required :type="showPass ? 'text' : 'password'" v-model="userData.pass" name="pswd"
+              placeholder="Password" class="pass" />
+            <i class="fa fa-eye-slash" @click="showPass = !showPass" v-if="showPass"></i>
             <i class="fa fa-eye" @click="showPass = !showPass" v-else></i>
           </div>
           <span class="err" v-if="$store.state.loginErr">{{
@@ -43,76 +26,41 @@
         <div class="go-signup">
           <router-link to="/signup">Sign up</router-link>
         </div>
-        <div class="forget text-center">
-          <span style="color: black; margin-right: 5px; font-size: 15px"
-            >If you Forget Password?</span
-          >
-          <router-link
-            to="forget-password"
-            style="color: whitesmoke; font-size: 13px"
-            >Click Here</router-link
-          >
+        <div class="forget text-center" style="margin-top: 70px;">
+          <span style="color: white; margin-right: 10px; font-size: 18px;font-weight:420;">If you Forget Password?</span>
+          <router-link to="forget-password" style="color: white; font-size: 25px;font-weight: bold;">Click
+            Here</router-link>
         </div>
       </div>
     </div>
     <div class="face-popup" v-if="showCamPopup">
-      <i
-        class="fa fa-close close-cam"
-        style="
-          color: white;
-          font-size: 30px;
-          position: absolute;
-          left: 20px;
-          top: 20px;
-        "
-        @click="closeVideo(vidSrcObj)"
-      ></i>
+      <i class="fa fa-close close-cam" style="
+                color: white;
+                font-size: 30px;
+                position: absolute;
+                left: 20px;
+                top: 20px;
+              " @click="closeVideo(vidSrcObj)"></i>
       <div class="vid-container">
-        <video
-          id="video"
-          autoplay
-          muted
-          width="720"
-          height="560"
-          :style="!webCam ? 'display: none' : 'display: block'"
-        ></video>
-        <img
-          width="720"
-          height="560"
-          src="@/assets/home/download.png"
-          class="display-img"
-          alt=""
-          :style="`${
-            webCam ? 'display: none;' : 'display: block;'
-          }border-radius: 7px`"
-        />
+        <video id="video" autoplay muted width="720" height="560"
+          :style="!webCam ? 'display: none' : 'display: block'"></video>
+        <img width="720" height="560" src="@/assets/home/download.png" class="display-img" alt="" :style="`${webCam ? 'display: none;' : 'display: block;'
+          }border-radius: 7px`" />
       </div>
-      <div
-        style="
-          display: flex;
-          width: 720px;
-          margin: auto;
-          gap: 30px;
-          margin-top: 10px;
-        "
-        class="btns_container"
-      >
+      <div style="
+                display: flex;
+                width: 720px;
+                margin: auto;
+                gap: 30px;
+                margin-top: 10px;
+              " class="btns_container">
         <button v-if="webCam" @click="displayImg" class="capture-btn">
           Capture
         </button>
-        <button
-          v-if="imgFile"
-          @click="start(userData.email)"
-          class="verify-btn capture-btn"
-        >
+        <button v-if="imgFile" @click="start(userData.email)" class="verify-btn capture-btn">
           Verify
         </button>
-        <button
-          style="background: indianred"
-          v-if="imgFile"
-          @click="cancelImg"
-          class="capture-btn"
-        >
+        <button style="background: indianred" v-if="imgFile" @click="cancelImg" class="capture-btn">
           Back
         </button>
       </div>
@@ -389,62 +337,73 @@ export default {
     min-height: 100vh;
     font-family: "Jost", sans-serif;
   }
+
   .logo {
     position: absolute;
     left: 50px;
     width: 165px;
     top: 10px;
+
     img {
       width: 100%;
     }
   }
+
   .main {
     width: 400px;
-    height: 90vh;
-    background: red;
+    height: 750px;
+    background: rgb(0, 0, 0);
     overflow: hidden;
-    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-      no-repeat center/ cover;
-    border-radius: 10px;
+    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+    border-radius: 30px;
     box-shadow: 5px 20px 50px #000;
     margin: 0 auto;
     margin-top: 22px;
   }
+
   .signup {
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
+    background-size: contain;
   }
+
   label {
-    color: #fff;
-    font-size: 2.3em;
+    color: rgb(255, 255, 255);
+    font-size: 3.7em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin: 0px;
     font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
     transition: 0.5s ease-in-out;
+  
   }
 
   input {
-    width: 70%;
-    height: 40px;
-    background: #e0dede;
+    width: 80%;
+    height: 45px;
+    background: white;
     justify-content: center;
     display: flex;
     margin: 20px auto;
-    padding: 10px;
+    padding: 20px;
     border: none;
     outline: none;
     border-radius: 5px;
   }
+
   .pass-dad {
     width: 70%;
     margin: auto;
     position: relative;
+
     input {
       width: 100%;
     }
+
     i {
       position: absolute;
       top: 50%;
@@ -453,15 +412,16 @@ export default {
       cursor: pointer;
     }
   }
+
   button {
-    width: 70%;
+    width: 50%;
     height: 40px;
     margin: 10px auto;
     justify-content: center;
     display: block;
-    color: #e0ecee;
-    background: $bgColor;
-    font-size: 1em;
+    color: #ffffff;
+    background-color: #883fb3;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 20px;
     outline: none;
@@ -470,24 +430,28 @@ export default {
     transition: 0.1s ease-in;
     cursor: pointer;
     margin-top: 40px;
-    opacity: 0.5;
+    opacity: 0.8;
   }
+
   button:hover {
+    transition: 12ms;
     opacity: 1;
-    background: rgb(52, 125, 52);
+    background-color: #099e09;
   }
+
   .login {
     height: 460px;
-    background: #eee;
+    background: #ffffff;
     border-radius: 60% / 10%;
     transform: translateY(-180px);
     transition: 0.8s ease-in-out;
   }
+
   .go-signup {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 58px;
+    bottom: 2px;
     width: 100%;
     height: 68px;
     background: #ececec;
@@ -497,24 +461,28 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
     a {
       color: black;
       font-size: 28px;
       font-weight: 700;
     }
   }
+
   span.err {
     display: block;
     color: rgb(240, 123, 123);
     letter-spacing: 1px;
     font-size: 12px;
-    width: 70%;
+    width: 80%;
     margin: auto;
   }
+
   .loading {
     opacity: 0;
     visibility: hidden;
   }
+
   .face-popup {
     position: fixed;
     left: 0;
@@ -526,6 +494,7 @@ export default {
     overflow: hidden auto;
   }
 }
+
 .vid-container {
   width: 100vw;
   display: flex;
@@ -533,21 +502,25 @@ export default {
   align-items: center;
   margin-top: 66px;
 }
+
 .capture-btn {
   margin: 0 auto 5px !important;
   opacity: 1 !important;
 }
+
 @media (max-width: 767px) {
   .sign-in #video {
     width: 95%;
     margin: auto;
   }
+
   .btns_container {
     justify-content: center;
     align-items: center;
     width: 100% !important;
   }
 }
+
 @media (max-width: 450px) {
   .sign-in .main {
     width: 95%;

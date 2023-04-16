@@ -42,7 +42,7 @@
         </tbody>
       </table>
       <div v-else class="no-students">
-        <p>You have not shared the exam with any student</p>
+        <p>You have not shared the exam with any student !</p>
       </div>
       <button
         v-if="resultData != '' || resultData.length > 0"
@@ -150,7 +150,9 @@ export default {
 .see-results {
   .container {
     box-shadow: 0px 0px 5px -2px black;
-    background-color: white;
+    background-image: url("https://img.freepik.com/premium-photo/concept-exams-tests-top-view_185193-80776.jpg?w=996");
+    background-size:cover;
+    opacity: .88;
     border-radius: 10px;
     overflow: hidden;
     margin-top: 30px;
@@ -217,24 +219,28 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
   p {
     font-style: italic;
-    color: #928c8c;
-    font-size: 20px;
+    color: #975353;
+    font-size: 28px;
   }
 }
 .see-results button {
-  background: $mainColor;
+  background-color: #883fb3;
   color: $titleColor;
   padding: 9px 29px;
   border: 1px solid #283d3b;
   border-radius: 13px;
   position: absolute;
   left: 50%;
-  bottom: 75px;
+  bottom: 112px;
   transform: translateX(-50%);
   font-size: 25px;
   font-weight: 900;
+}
+.see-results button:hover{
+  background-color: #099e09;
 }
 @media (max-width: 576px) {
   .see-results button {

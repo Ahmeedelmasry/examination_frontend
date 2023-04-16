@@ -128,13 +128,16 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
+    background-size: contain;
   }
   label {
     color: #fff;
-    font-size: 30px;
+    font-family: cursive;
+    font-size: 2.8em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin: 0px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s ease-in-out;
@@ -146,7 +149,7 @@ export default {
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 20px auto;
+    margin: 100px auto;
     padding: 10px;
     border: none;
     outline: none;
@@ -168,13 +171,13 @@ export default {
     }
   }
   button {
-    width: 70%;
+    width: 55%;
     height: 40px;
     margin: 10px auto;
     justify-content: center;
     display: block;
     color: #fff;
-    background: $bgColor;
+    background-color: #883fb3;
     font-size: 1em;
     font-weight: bold;
     margin-top: 20px;
@@ -184,9 +187,10 @@ export default {
     transition: 0.1s ease-in;
     cursor: pointer;
     margin-top: 40px;
-    opacity: 0.5;
+    opacity: .8;
   }
   button:hover {
+    transition: .3;
     opacity: 1;
     background: rgb(52, 125, 52);
   }
@@ -201,7 +205,7 @@ export default {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 58px;
+    bottom: 1px;
     width: 100%;
     height: 68px;
     background: #ececec;

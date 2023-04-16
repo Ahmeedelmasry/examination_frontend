@@ -9,8 +9,8 @@
             <div class="title">
               <h3 class="text-center py-3">Recent Exams</h3>
             </div>
-            <div class="exams px-3">
-              <div class="empty-exams" v-if="!getAllExams.length > 0">
+            <div class="exams px-3" >
+            <div class="empty-exams" v-if="!getAllExams.length > 0">
                 <p>There is no Exams added yet !</p>
               </div>
               <div
@@ -53,7 +53,7 @@
                     style="width: 18rem"
                   >
                     <img
-                      src="@/assets/exam.jpg"
+                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
                       class="exam-img-top"
                       alt="..."
                       @click="
@@ -389,7 +389,8 @@ export default {
     position: relative;
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-color: white;
+    background-image:url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
     margin-top: 30px;
@@ -400,7 +401,7 @@ export default {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
-      color: $titleColor;
+      color: black;
     }
     .exams {
       height: 89%;
@@ -416,7 +417,7 @@ export default {
         p {
           font-style: italic;
           text-align: center;
-          font-size: 25px;
+          font-size: 30px;
           color: #8684849e;
           font-weight: 500;
         }
@@ -508,6 +509,8 @@ export default {
     overflow: hidden;
     margin-top: 30px;
     width: 97%;
+    background-image:url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-size: cover;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -516,7 +519,7 @@ export default {
       h3 {
         font-size: 30px;
         font-weight: 900;
-        color: $titleColor;
+        color: black;
       }
     }
     .urls {
@@ -534,7 +537,7 @@ export default {
         p {
           font-style: italic;
           text-align: center;
-          font-size: 25px;
+          font-size: 30px;
           color: #8684849e;
           font-weight: 500;
         }
@@ -611,7 +614,8 @@ export default {
   .body {
     width: 50%;
     color: black;
-    background-color: white;
+    background-image:url("../../../../../../creative-synthesis-education-background_2755178.jpg");
+    background-size: cover;
     text-align: center;
     border-radius: 11px;
     padding-bottom: 30px;
@@ -621,24 +625,29 @@ export default {
       margin-bottom: 30px;
     }
     th {
-      font-size: 17px;
-      font-weight: 500;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;
     }
     .total,
     .result,
     .percentage {
-      font-size: 19px;
-      font-weight: 500;
+      font-size: 22px;
+      font-weight: 600;
       padding-top: 15px;
       letter-spacing: 1px;
     }
     button {
-      border: 1px solid #4175ee;
-      background-color: #4175ee;
+      border: 1px solid #0f0f0f;
+      background-color: #883fb3;
       color: white;
       border-radius: 4px;
       padding: 5px 13px 7px;
       margin-top: 10px;
+      width: 155px;
+    }
+    button:hover{
+      background-color: #099e09;
     }
   }
 }

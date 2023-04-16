@@ -6,7 +6,7 @@
     </div>
     <div
       class="main"
-      :style="images.length > 0 ? `height: 170vh` : 'height: 129vh'"
+      :style="images.length > 0 ? `height: 170vh` : 'height: 800px'"
     >
       <div class="signup position-relative">
         <form @submit.prevent="getUserData">
@@ -67,7 +67,7 @@
             }}</span>
           </div>
           <div class="user-position d-flex justify-content-center">
-            <label class="lbl mr-2" style="cursor: pointer">
+            <label class="lbl mr-2" style="cursor: pointer;font-size: larger">
               <input
                 type="radio"
                 name="position"
@@ -78,7 +78,7 @@
               />
               Student
             </label>
-            <label class="lbl ml-2" style="cursor: pointer">
+            <label class="lbl ml-2" style="cursor: pointer;font-size: larger;">
               <input
                 type="radio"
                 name="position"
@@ -96,7 +96,7 @@
             v-if="newUser.userRole == 'STUDENT'"
           >
             <div class="d-flex flex-column">
-              <label style="color: white; font-size: 13px" for="grade_no"
+              <label style="color: white;font-family:cursive; font-size: 17px" for="grade_no"
                 >Your Grade</label
               >
               <select
@@ -105,7 +105,7 @@
                 style="
                   padding: 5px 10px;
                   border-radius: 3px;
-                  background: #e0dede;
+                  background: white;
                 "
                 v-model="newUser.gradeNo"
               >
@@ -116,14 +116,14 @@
               </select>
             </div>
             <div class="d-flex flex-column">
-              <label for="section_no" style="color: white; font-size: 13px"
+              <label for="section_no" style="color: white;font-family:cursive; font-size:17px"
                 >Your Section</label
               >
               <select
                 style="
                   padding: 5px 10px;
                   border-radius: 3px;
-                  background: #e0dede;
+                  background: white;
                 "
                 name="section_no"
                 id="section_no"
@@ -157,7 +157,7 @@
             <label
               class="d-block text-center"
               for="upload"
-              style="color: white; font-size: 13px"
+              style="color: white;font-family:cursive;font-size: 18px"
               >Upload 3 Security Images</label
             >
             <div
@@ -432,22 +432,25 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
+    background-size: contain;
   }
   label.lbl {
-    color: #fff;
-    font-size: 2.3em;
+    color: #ffffff;
+    font-size: 3.4em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin: 0px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s ease-in-out;
+    font-family:'Courier New', Courier, monospace;
   }
 
   input:not([type="file"]) {
-    width: 70%;
+    width: 75%;
     height: 40px;
-    background: #e0dede;
+    background: #ffffff;
     justify-content: center;
     display: flex;
     margin: 30px auto 0;
@@ -465,7 +468,7 @@ export default {
     opacity: 0;
   }
   .pass-dad {
-    width: 70%;
+    width: 60%;
     margin: auto;
     position: relative;
     input {
@@ -480,26 +483,27 @@ export default {
     }
   }
   button {
-    width: 70%;
+    width: 60%;
     height: 40px;
     margin: 10px auto;
     justify-content: center;
     display: block;
     color: #fff;
-    background: $bgColor;
-    font-size: 1em;
+    background-color: #883fb3;
+    font-size: 25px;
     font-weight: bold;
     outline: none;
     border: none;
     border-radius: 5px;
-    transition: 0.2s ease-in;
+    transition: 0.3s ease-in;
     cursor: pointer;
     margin-top: 0px;
-    opacity: 0.5;
+    opacity: 0.8;
   }
   button:hover {
+    transition: 12ms;
     opacity: 1;
-    background: rgb(52, 125, 52);
+    background-color: #099e09;
   }
   .user-position {
     label {
@@ -512,6 +516,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      font-family:'Courier New', Courier, monospace;
       input {
         margin: 15px;
       }
@@ -528,7 +533,7 @@ export default {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 58px;
+    bottom: 1px;
     width: 100%;
     height: 68px;
     background: #ececec;
@@ -545,13 +550,14 @@ export default {
     }
   }
   span.err {
-    position: absolute;
+    background-color: #fff;
+    position:relative;
     top: 100%;
-    left: 62px;
+    left: 10px;
     display: block;
-    color: rgb(240, 123, 123);
+    color: rgba(243, 0, 0, 0.95);
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 18px;
     width: 70%;
     margin: auto;
   }

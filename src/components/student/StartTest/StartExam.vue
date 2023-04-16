@@ -457,11 +457,15 @@ export default {
     left: 50%;
     transform: translate(-50%, -125%);
     width: 100%;
+    color: white;
+    background-color: #883fb3;
     h1 {
       border-bottom: 1px solid $titleColor;
       width: fit-content;
       margin: auto;
       margin-bottom: 10px;
+      color: white;
+      background-color: #883fb3;
     }
     span {
       font-family: monospace;
@@ -531,7 +535,7 @@ export default {
         margin-left: 5px;
         text-align: center;
         padding: 5px 7px;
-        color: $mainColor;
+        color: white;
       }
       i.correct-answer {
         border-radius: 50%;
@@ -628,7 +632,7 @@ export default {
     z-index: 1000;
     display: none;
     .body {
-      background-color: white;
+     background-color: aliceblue;
       width: 30%;
       border-radius: 10px;
       box-shadow: 0px 0px 10px -6px black;
@@ -642,7 +646,7 @@ export default {
         justify-content: center;
         align-items: center;
         .submit-finish {
-          background-color: #4175ee;
+          background-color: #883fb3;
           color: white;
           font-weight: 500;
           padding: 4px 9px;
@@ -652,6 +656,10 @@ export default {
           margin-right: 5px;
           font-size: 14px;
         }
+        .submit-finish:hover{
+          background-color: #099e09;
+        }
+
         .cancel {
           background-color: indianred;
           color: white;
@@ -681,7 +689,8 @@ export default {
   .body {
     width: 50%;
     color: black;
-    background-color: white;
+    background-image:url("../../../../../../creative-synthesis-education-background_2755178.jpg");
+    background-size: cover;
     text-align: center;
     border-radius: 11px;
     padding-bottom: 30px;
@@ -704,12 +713,15 @@ export default {
     }
     button {
       border: 1px solid #4175ee;
-      background-color: #4175ee;
+      background-color: #883fb3;
       color: white;
       border-radius: 4px;
       padding: 5px 13px 7px;
       margin-top: 10px;
     }
+    button:hover{
+          background-color: #099e09;
+        }
   }
 }
 //Media Queries
