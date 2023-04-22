@@ -9,8 +9,8 @@
             <div class="title">
               <h3 class="text-center py-3">Recent Exams</h3>
             </div>
-            <div class="exams px-3" >
-            <div class="empty-exams" v-if="!getAllExams.length > 0">
+            <div class="exams px-3">
+              <div class="empty-exams" v-if="!getAllExams.length > 0">
                 <p>There is no Exams added yet !</p>
               </div>
               <div
@@ -389,7 +389,7 @@ export default {
     position: relative;
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-image:url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-image: url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
     background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
@@ -509,7 +509,7 @@ export default {
     overflow: hidden;
     margin-top: 30px;
     width: 97%;
-    background-image:url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-image: url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
     background-size: cover;
     margin-left: auto;
     margin-right: auto;
@@ -614,7 +614,7 @@ export default {
   .body {
     width: 50%;
     color: black;
-    background-image:url("../../../../../../creative-synthesis-education-background_2755178.jpg");
+    background-image: url("../../../assets/bg-img.jpg");
     background-size: cover;
     text-align: center;
     border-radius: 11px;
@@ -646,7 +646,7 @@ export default {
       margin-top: 10px;
       width: 155px;
     }
-    button:hover{
+    button:hover {
       background-color: #099e09;
     }
   }

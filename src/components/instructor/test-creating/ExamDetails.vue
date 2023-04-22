@@ -28,6 +28,20 @@
             </div>
           </div>
           <hr />
+          <!-- Exam Grade -->
+          <div class="time-div">
+            <p class="text-center">Exam Grade</p>
+            <div class="time-container">
+              <select name="grade" id="grade">
+                <option value="first" selected>First Grade</option>
+                <option value="second">Second Grade</option>
+                <option value="third">Third Grade</option>
+                <option value="fourth">Fourth Grade</option>
+              </select>
+            </div>
+          </div>
+          <!-- End Exam Grade -->
+          <hr />
           <div class="degree-div">
             <p class="text-center">Question Degree</p>
             <div class="degree-container">
@@ -230,6 +244,7 @@ export default {
         startDate: startDate,
         startTime: `${startTime}:00`,
         endTime: `${endTime}:00`,
+        grade: document.querySelector('select[name="grade"]').value,
       };
       localStorage.setItem("exam-details", JSON.stringify(this.examDetails));
       document.querySelector(".exam-details .exam-type-pop").style.display =
@@ -363,6 +378,9 @@ export default {
           this.examToSave.totalDegree = parseInt(degInp) * degreeCounter;
           this.examToSave.time = storageExamData.totalTime;
           this.examToSave.title = storageExamData.title;
+          this.examToSave.grade = document.querySelector(
+            'select[name="grade"]'
+          ).value;
           document.querySelector(".exam-details .loading").style.opacity =
             "0.7";
           document.querySelector(".exam-details .loading").style.visibility =
@@ -446,7 +464,14 @@ export default {
   .spinner {
     animation: rotator $duration linear infinite;
   }
-
+  select[name="grade"] {
+    background-color: transparent;
+    padding: 10px;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+  }
   @keyframes rotator {
     0% {
       transform: rotate(0deg);
@@ -734,7 +759,7 @@ export default {
       margin-top: 50px;
       transition: 0.2s;
       &:hover {
-        background-color:#099e09 ;
+        background-color: #099e09;
       }
     }
   }
@@ -770,7 +795,7 @@ export default {
         border-radius: 10px;
         font-weight: 700;
       }
-      button:hover{
+      button:hover {
         background-color: #099e09;
       }
     }

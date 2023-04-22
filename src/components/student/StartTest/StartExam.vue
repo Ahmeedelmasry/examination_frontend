@@ -632,7 +632,7 @@ export default {
     z-index: 1000;
     display: none;
     .body {
-     background-color: aliceblue;
+      background-color: aliceblue;
       width: 30%;
       border-radius: 10px;
       box-shadow: 0px 0px 10px -6px black;
@@ -656,7 +656,7 @@ export default {
           margin-right: 5px;
           font-size: 14px;
         }
-        .submit-finish:hover{
+        .submit-finish:hover {
           background-color: #099e09;
         }
 
@@ -689,7 +689,7 @@ export default {
   .body {
     width: 50%;
     color: black;
-    background-image:url("../../../../../../creative-synthesis-education-background_2755178.jpg");
+    background-image: url("../../../assets/bg-img.jpg");
     background-size: cover;
     text-align: center;
     border-radius: 11px;
@@ -719,9 +719,9 @@ export default {
       padding: 5px 13px 7px;
       margin-top: 10px;
     }
-    button:hover{
-          background-color: #099e09;
-        }
+    button:hover {
+      background-color: #099e09;
+    }
   }
 }
 //Media Queries

@@ -46,11 +46,13 @@ export default {
       )
         .then((res) => res.json())
         .then((data) => {
-          data.exams.forEach((exam) => {
-            if (exam.examId == payload.examId) {
-              checkExam = exam;
-            }
-          });
+          if (data) {
+            data.exams.forEach((exam) => {
+              if (exam.examId == payload.examId) {
+                checkExam = exam;
+              }
+            });
+          }
         })
         .catch((err) => console.log(err));
       return checkExam;

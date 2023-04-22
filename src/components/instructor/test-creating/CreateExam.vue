@@ -8,12 +8,18 @@
           <h1>Exam Title</h1>
         </div>
         <div class="row">
-          <div class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container">
+          <div
+            class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container"
+          >
             <div class="side-ques-dad">
               <div class="side-block">
-                <div class="side-ques-row position-relative side-active" data-question=".question-block-1">
+                <div
+                  class="side-ques-row position-relative side-active"
+                  data-question=".question-block-1"
+                >
                   <p class="side-ques">
-                    <span class="side-ques-num">1</span><i class="fa fa-arrow-right"></i> Question One
+                    <span class="side-ques-num">1</span
+                    ><i class="fa fa-arrow-right"></i> Question One
                     <span class="options-block position-absolute">
                       <i class="fa fa-close options-icon d-none"></i>
                     </span>
@@ -25,16 +31,25 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1">
+          <div
+            class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1"
+          >
             <div class="ques-tit-row">
-              <span class="ques-tit-num">1</span><i class="fa fa-arrow-right"></i>
-              <input class="ques-tit" placeholder="Write your question here.." />
+              <span class="ques-tit-num">1</span
+              ><i class="fa fa-arrow-right"></i>
+              <input
+                class="ques-tit"
+                placeholder="Write your question here.."
+              />
             </div>
             <div class="choices">
               <div class="ques-choise-row position-relative chosen-answer">
                 <span class="ques-choice-num">A</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
+                <i
+                  class="fa fa-close del-choice"
+                  style="pointer-events: none; opacity: 0.4"
+                ></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -42,7 +57,10 @@
               <div class="ques-choise-row position-relative">
                 <span class="ques-choice-num">B</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
+                <i
+                  class="fa fa-close del-choice"
+                  style="pointer-events: none; opacity: 0.4"
+                ></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -55,7 +73,14 @@
               <div class="time-degree">
                 <label for="degree" class="degree-label">
                   Degree
-                  <input type="number" value="0" name="degree" class="degree" max="100" min="0" />
+                  <input
+                    type="number"
+                    value="0"
+                    name="degree"
+                    class="degree"
+                    max="100"
+                    min="0"
+                  />
                 </label>
               </div>
             </div>
@@ -297,14 +322,17 @@ export default {
           this.numbers[i];
         sideRow.setAttribute(
           "data-question",
-          `.question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
+          `.question-block-${
+            allSideRows[i].querySelector(".side-ques-num").innerHTML
           }`
         );
         questNewBlock.classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
-          }`;
-        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${allSideRows[i].querySelector(".side-ques-num").innerHTML
-          }`;
+         ques-container mt-3 question-block-${
+           allSideRows[i].querySelector(".side-ques-num").innerHTML
+         }`;
+        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${
+          allSideRows[i].querySelector(".side-ques-num").innerHTML
+        }`;
       }
       if (allSideRows.length == 20) {
         document.querySelector(
@@ -523,6 +551,7 @@ export default {
             totalDegrees: this.degreeCounter,
             status: "Pending",
             userId: checkAuth._id,
+            grade: this.localStorageData.grade,
           };
           let alltheQues = [];
           for (let k = 0; k < this.questionsArr.length; k++) {
@@ -562,6 +591,7 @@ export default {
             time: this.allExamDetails.totalTime,
             title: this.allExamDetails.title,
             questions: alltheQues,
+            grade: this.allExamDetails.grade,
           };
           await this.doAddExam(theExam);
           setTimeout(() => {
@@ -669,14 +699,17 @@ export default {
 
               sideRows[i].setAttribute(
                 "data-question",
-                `.question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
+                `.question-block-${
+                  sideRows[i].querySelector(".side-ques-num").innerHTML
                 }`
               );
               allQueses[i].classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
-                }`;
-              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${sideRows[i].querySelector(".side-ques-num").innerHTML
-                }`;
+         ques-container mt-3 question-block-${
+           sideRows[i].querySelector(".side-ques-num").innerHTML
+         }`;
+              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${
+                sideRows[i].querySelector(".side-ques-num").innerHTML
+              }`;
             }
             sideRows.forEach((row) => {
               row.classList.remove("side-active");
@@ -793,7 +826,7 @@ export default {
     box-shadow: 0px 0px 7px -5px black;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    opacity: .7;
+    opacity: 0.7;
 
     .side-block {
       padding-left: 1px;
@@ -922,7 +955,7 @@ export default {
   display: none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 10px;
-  opacity: .6;
+  opacity: 0.6;
 
   .ques-tit-row {
     margin-bottom: 20px;
@@ -957,7 +990,6 @@ export default {
       font-size: 20px;
       font-style: italic;
       color: rgb(255, 193, 193);
-
     }
   }
 
@@ -1069,7 +1101,7 @@ export default {
       width: fit-content;
       font-size: 20px;
       font-weight: 750;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: "Courier New", Courier, monospace;
       color: rgb(249, 249, 249);
       margin-left: 40px;
       margin-top: 15px;
@@ -1077,7 +1109,6 @@ export default {
       letter-spacing: 1px;
       transition: 0.3s;
       margin-bottom: 50px;
-
     }
 
     .time-degree {

@@ -7,15 +7,34 @@
     <div class="search-feild position-absolute">
       <ul class="list-unstyled">
         <div v-if="this.searchUser.isExist" class="result">
-          <router-link :to="`/search-preview/${this.searchUser.userId}`"
-            class="d-flex justify-content-evenly align-items-center" @click="closeSearchPop(this.searchUser.userId)">
+          <li
+            style="cursor: pointer"
+            class="d-flex justify-content-evenly align-items-center"
+            @click="closeSearchPop(this.searchUser.userId)"
+          >
             <img src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
-            <li>{{ searchUser.firstName }} {{ searchUser.lastName }}</li>
-          </router-link>
+            <p class="m-0">
+              {{ searchUser.firstName }} {{ searchUser.lastName }}
+            </p>
+          </li>
         </div>
         <div class="loading-search">
-          <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+          <svg
+            class="spinner"
+            width="65px"
+            height="65px"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              class="path"
+              fill="none"
+              stroke-width="6"
+              stroke-linecap="round"
+              cx="33"
+              cy="33"
+              r="30"
+            ></circle>
           </svg>
         </div>
         <div class="no-result justify-content-center align-items-center p-3">
@@ -32,37 +51,62 @@
         </div>
         <div class="col-5">
           <div class="logo text-center">
-            <img src="@/assets/home/large.png" alt="" @click="goHomePage(checkAuthen)" />
+            <img
+              src="@/assets/home/large.png"
+              alt=""
+              @click="goHomePage(checkAuthen)"
+            />
           </div>
         </div>
         <div class="col-4">
           <div class="logout text-right">
             <div class="the-icons position-relative pr-lg-3">
               <div class="position-relative mr-4 pr-2">
-                <i class="fa fa-bell" style="cursor: pointer" @click="openNotifications"></i>
-                <span class="position-absolute badge badge-light" style="
-                        left: 15px;
-                        bottom: 14px;
-                        z-index: 1;
-                        background: indianred;
-                        color: white;
-                        font-size: 15px;
-                        border-radius: 6px;
-                      " v-if="newNotifiNum > 0">{{ newNotifiNum }}</span>
+                <i
+                  class="fa fa-bell"
+                  style="cursor: pointer"
+                  @click="openNotifications"
+                ></i>
+                <span
+                  class="position-absolute badge badge-light"
+                  style="
+                    left: 15px;
+                    bottom: 14px;
+                    z-index: 1;
+                    background: indianred;
+                    color: white;
+                    font-size: 15px;
+                    border-radius: 6px;
+                  "
+                  v-if="newNotifiNum > 0"
+                  >{{ newNotifiNum }}</span
+                >
                 <div class="show-notifs">
                   <ul>
-                    <li class="empty" v-if="notifications == '' || notifications == []" style="
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            height: 90px;
-                            font-size: 20px;
-                            color: #797575;
-                          ">
+                    <li
+                      class="empty"
+                      v-if="notifications == '' || notifications == []"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 90px;
+                        font-size: 20px;
+                        color: #797575;
+                      "
+                    >
                       No Notifications Yet!
                     </li>
-                    <li v-for="notif in notifications" :key="notif._id" :class="notif.isRead == false && 'is-read'">
-                      <img v-if="!notif.profileImg" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
+                    <li
+                      v-for="notif in notifications"
+                      :key="notif._id"
+                      :class="notif.isRead == false && 'is-read'"
+                    >
+                      <img
+                        v-if="!notif.profileImg"
+                        src="https://e.top4top.io/p_2363fihh21.jpg"
+                        alt=""
+                      />
                       <img v-else :src="notif.profileImg" alt="" />
                       {{ notif.firstName }} {{ notif.lastName }}
                       {{ notif.message }}
@@ -75,7 +119,11 @@
                 <img v-else src="../../../assets/home/download.png" alt="" />
               </router-link>
 
-              <i class="fa fa-arrow-right-from-bracket" style="cursor: pointer" @click="logOut"></i>
+              <i
+                class="fa fa-arrow-right-from-bracket"
+                style="cursor: pointer"
+                @click="logOut"
+              ></i>
             </div>
           </div>
         </div>
@@ -84,8 +132,16 @@
     <hr />
     <div class="search position-relative">
       <form action="" @submit.prevent="getSearchResult">
-        <input type="email" name="email" placeholder="Search" class="w-100 pl-4" required @blur="closeSearchDiv"
-          @keydown="closeSearchDiv" v-model="email" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Search"
+          class="w-100 pl-4"
+          required
+          @blur="closeSearchDiv"
+          @keydown="closeSearchDiv"
+          v-model="email"
+        />
         <button class="position-absolute">
           <i class="fa fa-search"></i>
         </button>
@@ -94,11 +150,13 @@
     <div class="overlay" @click="closeSideBar"></div>
     <div class="toggle-menu">
       <ul class="list-unstyled">
-        <router-link :to="
-          checkAuthen.userRole == 'STUDENT'
-            ? '/student-home'
-            : '/instructor-home'
-        ">
+        <router-link
+          :to="
+            checkAuthen.userRole == 'STUDENT'
+              ? '/student-home'
+              : '/instructor-home'
+          "
+        >
           <li><i class="fa fa-home"></i>Homepage</li>
         </router-link>
         <hr />
@@ -112,7 +170,11 @@
         <hr />
         <a href="#" @click="logOut">
           <li>
-            <i style="transform: rotateZ(180deg); padding-left: 21px" class="fa fa-arrow-right-from-bracket"></i>Logout
+            <i
+              style="transform: rotateZ(180deg); padding-left: 21px"
+              class="fa fa-arrow-right-from-bracket"
+            ></i
+            >Logout
           </li>
         </a>
         <hr />
@@ -440,13 +502,13 @@ body {
   cursor: pointer;
   color: rgb(255, 250, 250);
   opacity: 0.9;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .the-nav .menu i:hover {
   opacity: 1;
   color: #000;
-  transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 @media (max-width: 575px) {
@@ -491,13 +553,13 @@ body {
   cursor: pointer;
   color: rgb(255, 250, 250);
   opacity: 0.9;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .the-nav .logout i:hover {
   opacity: 1;
   color: #000;
-  transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 @media (max-width: 575px) {
@@ -557,7 +619,6 @@ body {
   display: none;
   position: fixed;
   z-index: 20;
-
 }
 
 .the-nav .toggle-menu {

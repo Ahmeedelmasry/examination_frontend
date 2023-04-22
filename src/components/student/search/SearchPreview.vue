@@ -6,49 +6,70 @@
       <!-- Profile Data -->
       <div class="profile-data mb-5 col-11 col-lg-7 mx-auto">
         <div class="the-img text-center">
-          <img src="https://e.top4top.io/p_2363fihh21.jpg" alt="" style="
-                  width: 200px;
-                  height: 200px;
-                  border-radius: 50%;
-                  margin-bottom: 30px;
-                " @click="showImg" />
+          <img
+            src="https://e.top4top.io/p_2363fihh21.jpg"
+            alt=""
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              margin-bottom: 30px;
+            "
+            @click="showImg"
+          />
         </div>
         <div class="the-data">
-          <p class="user-name text-center" style="
-                  font-size: 28px;
-                  font-weight: 900;
-                  text-transform: capitalize;
-                  color: white;
-                "></p>
-          <p class="user-email text-center" style="font-size: 28px; font-weight: 900; color: white;"></p>
+          <p
+            class="user-name text-center"
+            style="
+              font-size: 28px;
+              font-weight: 900;
+              text-transform: capitalize;
+              color: white;
+            "
+          ></p>
+          <p
+            class="user-email text-center"
+            style="font-size: 28px; font-weight: 900; color: white"
+          ></p>
         </div>
         <div class="follow text-center pt-3">
-          <button v-if="followingModule.isFollowed" class="follow-btn followed" style="
-                  background-color: #2a497d;
-                  color: white;
-                  transition: 0.3s all ease-in-out;
-                  margin-top: 10px;
-                  padding: 8px 30px;
-                  border-radius: 10px;
-                  border-color: #2a497d;
-                  font-size: 25px;
-                  font-weight: 900;
-                  transition: 0.3s;
-                " @click="followUser">
+          <button
+            v-if="followingModule.isFollowed"
+            class="follow-btn followed"
+            style="
+              background-color: #2a497d;
+              color: white;
+              transition: 0.3s all ease-in-out;
+              margin-top: 10px;
+              padding: 8px 30px;
+              border-radius: 10px;
+              border-color: #2a497d;
+              font-size: 25px;
+              font-weight: 900;
+              transition: 0.3s;
+            "
+            @click="followUser"
+          >
             Unfollow
           </button>
-          <button v-else class="'follow-btn'" style="
-                  background-color: #2a497d;
-                  color: white;
-                  transition: 0.3s all ease-in-out;
-                  margin-top: 10px;
-                  padding: 8px 30px;
-                  border-radius: 10px;
-                  border-color: #2a497d;
-                  font-size: 25px;
-                  font-weight: 900;
-                  transition: 0.3s;
-                " @click="followUser">
+          <button
+            v-else
+            class="'follow-btn'"
+            style="
+              background-color: #2a497d;
+              color: white;
+              transition: 0.3s all ease-in-out;
+              margin-top: 10px;
+              padding: 8px 30px;
+              border-radius: 10px;
+              border-color: #2a497d;
+              font-size: 25px;
+              font-weight: 900;
+              transition: 0.3s;
+            "
+            @click="followUser"
+          >
             follow
           </button>
         </div>
@@ -58,44 +79,63 @@
         <div class="col-12 col-sm-8 pr-sm-2">
           <div class="add-exam-div">
             <div class="title">
-              <h3 class="text-center py-3">Shared Exams</h3>
+              <h3 class="text-center py-3">Open Exams</h3>
             </div>
             <div class="exams px-3">
               <div class="empty-exams" v-if="!getAllExams">
-                <p>There is no Exams available yet !</p>
+                <p>There is no Exams open now!</p>
               </div>
               <div class="row">
-                <div class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" v-for="(exam, index) in getAllExams" :key="index">
-                  <router-link to="/student-home">
-                    <div class="exam card pb-4 position-relative" style="width: 18rem">
-                      <img
-                        src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
-                        class="exam-img-top" alt="..." />
-                      <div class="exam-body card-body">
-                        <h5 class="exam-title card-title">
-                          {{ exam.title }}
-                        </h5>
-                        <p class="exam-date">
-                          {{ exam.startDate }}
-                        </p>
-                        <p class="exam-start-time">
-                          Start: {{ exam.startTimeAt.slice(0, 5) }}
-                        </p>
-                        <p class="exam-end-time">
-                          End: {{ exam.endTimeAt.slice(0, 5) }}
-                        </p>
-                        <p class="exam-status" :style="
+                <div
+                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
+                  v-for="(exam, index) in getAllExams"
+                  :key="index"
+                >
+                  <div
+                    class="exam card pb-4 position-relative"
+                    style="width: 18rem"
+                  >
+                    <img
+                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
+                      class="exam-img-top"
+                      alt="..."
+                      @click="
+                        openExam(
+                          exam.instructorUserId,
+                          allUserInfo.userId,
+                          exam._id,
+                          exam
+                        )
+                      "
+                      style="cursor: pointer"
+                    />
+                    <div class="exam-body card-body">
+                      <h5 class="exam-title card-title">
+                        {{ exam.title }}
+                      </h5>
+                      <p class="exam-date">
+                        {{ exam.startDate }}
+                      </p>
+                      <p class="exam-start-time">
+                        Start: {{ exam.startTimeAt.slice(0, 5) }}
+                      </p>
+                      <p class="exam-end-time">
+                        End: {{ exam.endTimeAt.slice(0, 5) }}
+                      </p>
+                      <p
+                        class="exam-status"
+                        :style="
                           exam.status == 'Pending'
                             ? 'color: orange'
                             : exam.status == 'Closed'
-                              ? 'color: indianred'
-                              : 'color: #46b846'
-                        ">
-                          {{ exam.status }}
-                        </p>
-                      </div>
+                            ? 'color: indianred'
+                            : 'color: #46b846'
+                        "
+                      >
+                        {{ exam.status }}
+                      </p>
                     </div>
-                  </router-link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -104,7 +144,7 @@
         <div class="col-12 col-sm-4 pl-sm-2 mt-3 mt-sm-0">
           <div class="add-url-div">
             <div class="title py-3">
-              <h3 class="text-center">Shared URLs</h3>
+              <h3 class="text-center">URLs</h3>
             </div>
             <div class="urls">
               <div class="empty-urls" v-if="!instrucHome.urls">
@@ -123,15 +163,43 @@
         </div>
       </div>
     </div>
+    <div class="result-popup">
+      <div class="body">
+        <p class="alert">You have already completed this exam</p>
+        <table class="table-control w-100 mb-4">
+          <thead>
+            <tr>
+              <th>Exam Degree</th>
+              <th>Result Degree</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="total">{{ examTotal }}</td>
+              <td class="result">{{ stResult }}</td>
+              <td class="percentage">{{ resPercent }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="result-btns">
+          <button class="cancel" @click="closeResultPop">Close</button>
+        </div>
+      </div>
+    </div>
     <div class="show-prof-img">
-      <span style="
-              color: white;
-              position: absolute;
-              font-size: 25px;
-              top: 40px;
-              left: 40px;
-              cursor: pointer;
-            " @click="closePhoto">X</span>
+      <span
+        style="
+          color: white;
+          position: absolute;
+          font-size: 25px;
+          top: 40px;
+          left: 40px;
+          cursor: pointer;
+        "
+        @click="closePhoto"
+        >X</span
+      >
       <div class="img-feild"></div>
     </div>
   </div>
@@ -159,6 +227,9 @@ export default {
       userId: "",
       infoUpdated: false,
       profileImage: "",
+      examTotal: "",
+      stResult: "",
+      resPercent: "",
     };
   },
   computed: {
@@ -167,6 +238,7 @@ export default {
       "followingModule",
       "navbarModule",
       "allUserInfo",
+      "instrucHome",
     ]),
   },
   methods: {
@@ -178,6 +250,9 @@ export default {
       "doGetSearchedExams",
       "doCheckUrls",
       "doCheckAuth",
+      "doGetExams",
+      "checkIfExamed",
+      "doCheckExam",
     ]),
     showAlert(icn, msg, btnTxt, showCancel = false, cancelTxt = "") {
       this.$swal({
@@ -190,6 +265,10 @@ export default {
         showCancelButton: showCancel,
         showCloseButton: true,
       });
+    },
+    closeResultPop() {
+      document.querySelector(".search-preview .result-popup").style.display =
+        "none";
     },
     closePhoto(e) {
       e.target.parentElement.style.display = "none";
@@ -297,8 +376,94 @@ export default {
         );
       }
     },
+    async openExam(instId, stId, examId, examData) {
+      const checkAuth = await this.doCheckAuth(this.$store.state.apiLink);
+      if (!checkAuth) {
+        this.$router.push("/signin");
+      } else {
+        document.querySelector(".loading").style.cssText = `
+        opacity: 0.7; visibility: visible
+      `;
+        const payload = {
+          instId: instId,
+          stId: stId,
+          examId: examId,
+        };
+        let checkExam = await this.checkIfExamed(payload);
+
+        // If New Exam Not shared
+        if (!checkExam) {
+          setTimeout(async () => {
+            document.querySelector(".loading").style.cssText = `
+              opacity: 0; visibility: hidden
+            `;
+            //
+            const exam = examData;
+            exam.examId = examData._id;
+            exam.isExamed = false;
+            exam.result = null;
+            const toShareExam = {
+              studentId: this.allUserInfo.userId,
+              instructorId: examData.instructorUserId,
+              firstName: this.firstName,
+              lastName: this.lastName,
+              profileImg: this.profileImage,
+              exams: [exam],
+            };
+            await this.doCheckExam(toShareExam);
+
+            localStorage.setItem("exam-available", "true");
+            this.$router.push(`/start-exam/${instId}/${stId}/${examId}`);
+          }, 1000);
+        } else {
+          if (checkExam.isExamed == false) {
+            setTimeout(() => {
+              document.querySelector(".loading").style.cssText = `
+                  opacity: 0; visibility: hidden
+                `;
+              localStorage.setItem("exam-available", "true");
+              this.$router.push(`/start-exam/${instId}/${stId}/${examId}`);
+            }, 1000);
+          } else {
+            setTimeout(() => {
+              document.querySelector(".loading").style.cssText = `
+                opacity: 0; visibility: hidden
+              `;
+              //
+              document.querySelector(
+                ".search-preview .result-popup .body p"
+              ).innerText = "You have already completed this exam";
+              document.querySelector(
+                ".search-preview .result-popup .body p"
+              ).classList = "alert alert-success";
+              setTimeout(() => {
+                document.querySelector(
+                  ".search-preview .loading"
+                ).style.cssText = `
+                opacity: 0; visibility: hidden
+              `;
+                this.examTotal = checkExam.totalDegree;
+                this.stResult = checkExam.result;
+                this.resPercent =
+                  (
+                    (parseInt(checkExam.result) * 100) /
+                    parseInt(checkExam.totalDegree)
+                  ).toFixed(2) + "%";
+                setTimeout(() => {
+                  document.querySelector(
+                    ".search-preview .result-popup"
+                  ).style.display = "flex";
+                }, 100);
+              }, 500);
+              //
+            }, 500);
+          }
+        }
+      }
+    },
   },
   async mounted() {
+    this.getAllExams = "";
     document.querySelector(".the-nav .search form").style.display = "none";
     const checkAuth = await this.doCheckAuth(this.$store.state.apiLink);
     if (!checkAuth) {
@@ -312,6 +477,10 @@ export default {
         studentId: checkAuth._id,
       };
       await this.doCheckFollowed(payload);
+      await this.doGetExams(this.$route.params.id);
+      this.getAllExams = this.instrucHome.allExams.filter((el) => {
+        return el.grade == this.allUserInfo.gradeNo && el.status == "Open";
+      });
       await this.doGetUrls(this.$route.params.id);
       await this.doGetSearchedExams(payload);
       if (this.followingModule.stExams[0]) {
@@ -335,7 +504,7 @@ export default {
     margin: auto;
     padding: 30px 0;
     border-radius: $bRadius;
-    opacity: .9;
+    opacity: 0.9;
 
     button {
       border-radius: $bRadius;
@@ -557,6 +726,58 @@ export default {
           border: 1px solid black;
         }
       }
+    }
+  }
+}
+
+.search-preview .result-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.587);
+  z-index: 3000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  .body {
+    width: 50%;
+    color: black;
+    background-image: url("../../../assets/bg-img.jpg");
+    background-size: cover;
+    text-align: center;
+    border-radius: 11px;
+    padding-bottom: 30px;
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    th {
+      font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;
+    }
+    .total,
+    .result,
+    .percentage {
+      font-size: 22px;
+      font-weight: 600;
+      padding-top: 15px;
+      letter-spacing: 1px;
+    }
+    button {
+      border: 1px solid #0f0f0f;
+      background-color: #883fb3;
+      color: white;
+      border-radius: 4px;
+      padding: 5px 13px 7px;
+      margin-top: 10px;
+      width: 155px;
+    }
+    button:hover {
+      background-color: #099e09;
     }
   }
 }

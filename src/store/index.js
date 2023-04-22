@@ -56,7 +56,6 @@ export default createStore({
     },
     async doCheckAuth(context, apiLink) {
       let checkAuth;
-      console.log("fired store");
       await fetch(`${apiLink}/users/check/is-auth`, {
         credentials: "include",
       })
