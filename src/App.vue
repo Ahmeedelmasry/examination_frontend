@@ -28,8 +28,8 @@
     left: 0;
     top: 0;
     z-index: -1;
-    background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG9ubGluZSUyMGVkdWNhdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60");
-    background-size: cover;
+    background-image: url("./assets/over.jpg");
+     background-size: cover;
     opacity: .9;
   }
 }

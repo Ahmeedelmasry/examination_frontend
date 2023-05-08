@@ -102,8 +102,13 @@ export default {
   width: fit-content;
   margin: auto;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 8px 0px black;
   margin-top: 20px;
   font-weight: 900;
+  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-size: auto;
+  border-radius: 20px;
+  padding: 10px;
 }
 .test-preview .ques-container {
   padding-top: 60px;
@@ -111,11 +116,12 @@ export default {
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 7px -5px black;
+  box-shadow: 0px 0px 14px 0px black;
   border-radius: 10px;
   color: $titleColor;
   font-weight: 900;
-  background-color: $mainColor;
+  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-size: cover;
   border: 1px solid $titleColor;
   .ques-tit-row {
     margin-bottom: 20px;
@@ -165,10 +171,10 @@ export default {
       font-size: 11px;
       border: none;
       outline: none;
-      color: rgb(39, 39, 253);
-      font-weight: 500;
+      color: rgb(0, 0, 0);
+      font-weight: 750;
       background-color: $titleColor;
-      border: 1px solid rgb(39, 39, 253);
+      border: 1px solid rgb(255, 255, 255);
       border-radius: 4px;
       padding: 0;
       margin-left: 5px;
@@ -194,9 +200,11 @@ export default {
   width: fit-content;
   margin: auto;
   border-radius: 20px;
-  background-color: $mainColor;
+  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-size: auto;
   border: 1px solid $titleColor;
   padding: 10px 30px;
+  box-shadow: 0px 0px 14px 0px black;
   .degree,
   .time {
     padding: 10px;
@@ -208,6 +216,7 @@ export default {
     font-size: 15px;
     text-align: center;
     font-weight: 900;
+   
   }
   p {
     font-size: 13px;

@@ -5,21 +5,15 @@
     <div class="container-fluid">
       <form action="" @submit.prevent="saveExamData">
         <div class="exam-title">
-          <h1>Exam Title</h1>
+          <h1>{{ localStorageData.title }}</h1>
         </div>
         <div class="row">
-          <div
-            class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container"
-          >
+          <div class="col-11 col-md-2 mr-auto mr-md-2 ml-auto mt-3 side-ques-container">
             <div class="side-ques-dad">
               <div class="side-block">
-                <div
-                  class="side-ques-row position-relative side-active"
-                  data-question=".question-block-1"
-                >
+                <div class="side-ques-row position-relative side-active" data-question=".question-block-1">
                   <p class="side-ques">
-                    <span class="side-ques-num">1</span
-                    ><i class="fa fa-arrow-right"></i> Question One
+                    <span class="side-ques-num">1</span><i class="fa fa-arrow-right"></i> Question One
                     <span class="options-block position-absolute">
                       <i class="fa fa-close options-icon d-none"></i>
                     </span>
@@ -31,25 +25,16 @@
               </div>
             </div>
           </div>
-          <div
-            class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1"
-          >
+          <div class="col-md-9 col-11 ml-auto ml-md-2 mr-auto ques-container mt-3 question-block-1">
             <div class="ques-tit-row">
-              <span class="ques-tit-num">1</span
-              ><i class="fa fa-arrow-right"></i>
-              <input
-                class="ques-tit"
-                placeholder="Write your question here.."
-              />
+              <span class="ques-tit-num">1</span><i class="fa fa-arrow-right"></i>
+              <input class="ques-tit" placeholder="Write your question here.." />
             </div>
             <div class="choices">
               <div class="ques-choise-row position-relative chosen-answer">
                 <span class="ques-choice-num">A</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i
-                  class="fa fa-close del-choice"
-                  style="pointer-events: none; opacity: 0.4"
-                ></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -57,30 +42,22 @@
               <div class="ques-choise-row position-relative">
                 <span class="ques-choice-num">B</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i
-                  class="fa fa-close del-choice"
-                  style="pointer-events: none; opacity: 0.4"
-                ></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
               </div>
             </div>
             <div class="btns">
-              <button class="add-choice" type="button" @click="addChoice">
+              <button class="add-choice" type="button" @click="addChoice"
+                style=" pointer-events: unset; opacity: 1;background-color: #fbf9f9;color: #5d5d5d">
                 Add Choice
               </button>
               <div class="time-degree">
                 <label for="degree" class="degree-label">
                   Degree
-                  <input
-                    type="number"
-                    value="0"
-                    name="degree"
-                    class="degree"
-                    max="100"
-                    min="0"
-                  />
+                  <input type="number" value="0" name="degree" class="degree" max="100" min="0"
+                    style="box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 0px 1px inset;" />
                 </label>
               </div>
             </div>
@@ -322,17 +299,14 @@ export default {
           this.numbers[i];
         sideRow.setAttribute(
           "data-question",
-          `.question-block-${
-            allSideRows[i].querySelector(".side-ques-num").innerHTML
+          `.question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
           }`
         );
         questNewBlock.classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${
-           allSideRows[i].querySelector(".side-ques-num").innerHTML
-         }`;
-        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${
-          allSideRows[i].querySelector(".side-ques-num").innerHTML
-        }`;
+         ques-container mt-3 question-block-${allSideRows[i].querySelector(".side-ques-num").innerHTML
+          }`;
+        questNewBlock.querySelector(".ques-tit-num").innerHTML = `${allSideRows[i].querySelector(".side-ques-num").innerHTML
+          }`;
       }
       if (allSideRows.length == 20) {
         document.querySelector(
@@ -699,17 +673,14 @@ export default {
 
               sideRows[i].setAttribute(
                 "data-question",
-                `.question-block-${
-                  sideRows[i].querySelector(".side-ques-num").innerHTML
+                `.question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
                 }`
               );
               allQueses[i].classList = `col-md-9 col-11 ml-auto ml-md-2 mr-auto
-         ques-container mt-3 question-block-${
-           sideRows[i].querySelector(".side-ques-num").innerHTML
-         }`;
-              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${
-                sideRows[i].querySelector(".side-ques-num").innerHTML
-              }`;
+         ques-container mt-3 question-block-${sideRows[i].querySelector(".side-ques-num").innerHTML
+                }`;
+              allQueses[i].querySelector(".ques-tit-num").innerHTML = `${sideRows[i].querySelector(".side-ques-num").innerHTML
+                }`;
             }
             sideRows.forEach((row) => {
               row.classList.remove("side-active");
@@ -818,15 +789,14 @@ export default {
   }
 
   .side-ques-container {
-    background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-    padding: 0;
+    background-image: url("../../../assets/subject1.jpg");
     background-size: cover;
     height: 82vh;
     padding-bottom: 20px;
     box-shadow: 0px 0px 7px -5px black;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    opacity: 0.7;
+
 
     .side-block {
       padding-left: 1px;
@@ -844,6 +814,7 @@ export default {
         font-size: 10px;
         font-weight: 700;
         margin: 0;
+        color: white;
 
         .side-ques-num {
           font-size: 12px;
@@ -871,7 +842,7 @@ export default {
           .options-icon {
             font-size: 12px;
             transition: 0.2s;
-            color: rgba(109, 107, 107, 0.804);
+            color: rgba(255, 255, 255, 0.804);
           }
         }
       }
@@ -879,16 +850,16 @@ export default {
 
     //Side Active Classes
     .side-active {
-      background-color: rgb(243, 240, 240);
+      background-color: rgba(0, 0, 0, 0.573);
       border-radius: 7px;
       outline: 1px solid #a5a3a3b5;
+      color: white;
     }
 
     /////////////////////////
     .submit {
       width: 40px;
       background-color: $mainColor;
-      opacity: 0.7;
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
@@ -923,7 +894,7 @@ export default {
   z-index: 1;
 
   .save-exam {
-    background-color: #7a00c1;
+    background-color: #803a72f4;
     color: rgb(255, 255, 255);
     width: 177px;
     border: 1px solid $mainColor;
@@ -932,7 +903,6 @@ export default {
     font-size: 25px;
     font-weight: 900;
     transition: 0.3s;
-    opacity: 0.7;
     box-shadow: 0px 0px 10px -3px black;
     margin-bottom: 10px;
 
@@ -944,7 +914,7 @@ export default {
 }
 
 .create-test .ques-container {
-  background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-image: url("../../../assets/subject1.jpg");
   background-size: cover;
   height: 82vh;
   padding-top: 110px;
@@ -955,7 +925,7 @@ export default {
   display: none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 10px;
-  opacity: 0.6;
+
 
   .ques-tit-row {
     margin-bottom: 20px;
@@ -963,11 +933,11 @@ export default {
     .ques-tit-num {
       font-size: 15px;
       font-weight: 700;
-      color: $mainColor;
+      color: white;
     }
 
     i {
-      color: $mainColor;
+      color: white;
       font-size: 10px;
       padding-left: 3px;
       padding-right: 10px;
@@ -989,7 +959,7 @@ export default {
     input::placeholder {
       font-size: 20px;
       font-style: italic;
-      color: rgb(255, 193, 193);
+      color: rgb(255, 255, 255);
     }
   }
 
@@ -1012,7 +982,7 @@ export default {
       padding-left: 10px;
       text-transform: capitalize;
       width: 100%;
-      font-weight: 700;
+      font-weight: 1000;
       color: white;
     }
 
@@ -1021,7 +991,7 @@ export default {
       border: none;
       outline: none;
       color: $mainColor;
-      font-weight: 500;
+      font-weight: 1000;
       background-color: rgb(255, 255, 255);
       border: 1px solid $mainColor;
       border-radius: 4px;
@@ -1101,7 +1071,6 @@ export default {
       width: fit-content;
       font-size: 20px;
       font-weight: 750;
-      font-family: "Courier New", Courier, monospace;
       color: rgb(249, 249, 249);
       margin-left: 40px;
       margin-top: 15px;
@@ -1109,6 +1078,13 @@ export default {
       letter-spacing: 1px;
       transition: 0.3s;
       margin-bottom: 50px;
+      pointer-events: unset;
+      opacity: 1;
+      background-color: #fbf9f9;
+      font-size: 18px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      color: #5d5d5d;
     }
 
     .time-degree {
@@ -1118,11 +1094,14 @@ export default {
       padding-top: 10px;
 
       label {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 1000;
         color: white;
         letter-spacing: 1px;
         letter-spacing: 1px;
+        background-color: #803a72e1;
+        padding: 5px 12px;
+        border-radius: 15px;
       }
     }
 
@@ -1133,13 +1112,13 @@ export default {
       padding-left: 15px;
       width: 50px;
       color: white;
-      box-shadow: $mainColor 0px 0px 0px 1px inset;
+      box-shadow: none !important;
       background-color: transparent;
       border-radius: 3px;
       padding-top: 6px;
       padding-bottom: 8px;
-      font-weight: 500;
-      font-size: 14px;
+      font-weight: 1000;
+      font-size: 15px;
     }
 
     input[name="time"] {
@@ -1147,15 +1126,15 @@ export default {
     }
 
     .add-choice:hover {
-      color: rgb(9, 72, 173);
+      color: rgba(31, 35, 121, 0.893);
     }
 
     .save-ques {
       border: none;
       outline: none;
       width: fit-content;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 22px;
+      font-weight: 1000;
       color: rgb(204, 217, 238);
       margin-left: 40px;
       margin-top: 15px;
@@ -1319,6 +1298,7 @@ export default {
         padding-top: 2px;
         padding-bottom: 4px;
         font-size: 12px;
+        color: #000000;
       }
 
       .time-degree input[name="time"] {

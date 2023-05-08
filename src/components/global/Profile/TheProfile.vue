@@ -7,11 +7,7 @@
         <div class="row">
           <div class="col-11 col-lg-7 m-auto main-col pt-4">
             <div class="profile-img">
-              <img
-                :src="allUserInfo.photo != null && allUserInfo.photo"
-                alt=""
-                @click="showImg"
-              />
+              <img :src="allUserInfo.photo != null && allUserInfo.photo" alt="" @click="showImg" />
             </div>
             <div class="info mt-4 pt-2">
               <div class="first-name-block info-block">
@@ -48,8 +44,7 @@
       </div>
     </div>
     <div class="show-prof-img">
-      <span
-        style="
+      <span style="
           color: white;
           position: absolute;
           font-size: 25px;
@@ -57,10 +52,7 @@
           left: 40px;
           cursor: pointer;
           z-index: 10;
-        "
-        @click="closePhoto"
-        >X</span
-      >
+        " @click="closePhoto">X</span>
       <div class="img-feild"></div>
     </div>
   </div>
@@ -143,6 +135,7 @@ export default {
     background-position: center center;
     border: 2px solid rgba(255, 255, 255, 0.252);
     background-size: cover;
+
     img {
       width: 100%;
       height: 100%;
@@ -151,6 +144,7 @@ export default {
     }
   }
 }
+
 .profile .info {
   margin-right: auto;
   margin-left: auto;
@@ -158,8 +152,11 @@ export default {
 
   .info-block {
     margin-bottom: 40px;
+
     button {
-      background-color: #883fb3;
+      background-color: rgb(4, 127, 119);
+      color: white;
+      ;
       color: $titleColor;
       transition: 0.3s;
       margin-top: 10px;
@@ -170,32 +167,37 @@ export default {
       font-weight: 900;
       letter-spacing: 1px;
     }
+
     button:hover {
       transition: 12ms;
       background-color: #099e09;
     }
   }
+
   span {
     font-size: 28px;
     font-weight: 900;
     text-transform: capitalize;
   }
+
   span.the-email {
     text-transform: unset;
   }
+
   span.block-tit {
     display: inline-block;
   }
 }
+
 .profile .main-col {
   padding-top: 10px;
   border: 2px solid rgba(255, 255, 255, 0.148);
   background: $bgColor;
   border-radius: 30px;
-  background-image: url("https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg");
+  background-image: url("../../../assets/6107199.jpg");
   background-size: cover;
-  opacity: .85;
 }
+
 .profile .show-prof-img {
   width: 100%;
   height: 100%;
@@ -205,6 +207,7 @@ export default {
   z-index: 20000;
   display: none;
   background: rgba(0, 0, 0, 0.812);
+
   .img-feild {
     width: 100%;
     height: 100%;
@@ -216,48 +219,58 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
     max-width: 85%;
+    border-radius: 10px;
   }
 }
+
 //Media Queries
 @media (max-width: 990px) {
   .profile .info span {
     font-size: 25px;
     color: white;
   }
+
   .profile .info .info-block button {
     font-size: 20px;
   }
 }
+
 @media (max-width: 766px) {
   .profile .main-col {
     border-radius: 20px;
   }
+
   .profile .info span {
     font-size: 15px;
   }
+
   .profile .profile-img {
     width: 120px;
     height: 120px;
   }
+
   .profile .info .info-block button {
     font-size: 15px;
   }
 }
+
 @media (max-width: 479px) {
   .profile .info {
     span {
       font-size: 9px;
     }
+
     .info-block {
       margin-bottom: 32px;
+
       button {
         font-size: 12px;
       }
     }
   }
+
   .profile .profile-img {
     width: 100px;
     height: 100px;
   }
-}
-</style>
+}</style>

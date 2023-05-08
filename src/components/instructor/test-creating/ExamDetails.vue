@@ -32,11 +32,11 @@
           <div class="time-div">
             <p class="text-center">Exam Grade</p>
             <div class="time-container">
-              <select name="grade" id="grade">
-                <option value="first" selected>First Grade</option>
-                <option value="second">Second Grade</option>
-                <option value="third">Third Grade</option>
-                <option value="fourth">Fourth Grade</option>
+              <select name="grade" id="grade" >
+                <option value="first" selected style="color: black;">First Grade</option>
+                <option value="second" style="color: black;">Second Grade</option>
+                <option value="third" style="color: black;">Third Grade</option>
+                <option value="fourth" style="color: black;">Fourth Grade</option>
               </select>
             </div>
           </div>
@@ -468,7 +468,8 @@ export default {
     background-color: transparent;
     padding: 10px;
     outline: none;
-    border: 2px solid black;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     font-weight: bold;
   }
@@ -563,11 +564,12 @@ export default {
   .form-dad {
     width: 70%;
     margin: auto;
-    background-color: $mainColor;
+    background-image: url("../../../assets/6004798.jpg");
     border: 1px solid $titleColor;
     color: $titleColor;
     border-radius: 30px;
     padding: 20px;
+    box-shadow: 3px 0px 23px -7px black;
     .title-div {
       input {
         width: 70%;
@@ -701,7 +703,7 @@ export default {
     }
     label {
       width: 100px;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 900;
       margin-right: 10px;
     }
@@ -747,7 +749,7 @@ export default {
       padding-top: 8px;
       padding-bottom: 8px;
       border: 1px solid $titleColor;
-      background-color: #883fb3;
+      background-color: #882481e4;
       color: $titleColor;
       border-radius: 12px;
       font-size: 25px;
@@ -786,7 +788,7 @@ export default {
       height: 200px;
       border-radius: 50px;
       button {
-        background-color: #9a5de3c1;
+        background-color:#ffffffe1;
         color: rgb(0, 0, 0);
         border: 1px solid $titleColor;
         outline: none;
@@ -869,8 +871,8 @@ export default {
         margin: auto;
         font-size: 17px;
         font-weight: 900;
-        color: $mainColor;
-        background-color: $titleColor;
+        color: white;
+        background-color: #047f77;
         border: 1px solid $titleColor;
         outline: none;
         padding: 10px;

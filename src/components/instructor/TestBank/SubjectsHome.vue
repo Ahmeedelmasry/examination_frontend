@@ -140,7 +140,7 @@ export default {
     position: relative;
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
+    background-image: url("../../../assets/learning-3245792_960_720.jpg");
     background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
@@ -153,7 +153,7 @@ export default {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
-      color: black;
+      color: white;
     }
 
     .exams {
@@ -163,8 +163,7 @@ export default {
       overflow-x: hidden;
       position: relative;
       border-bottom: 13px solid $mainColor;
-      background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
-      background-size: cover;
+
 
       .row {
         .exam-dad {
@@ -257,8 +256,8 @@ export default {
         cursor: pointer;
         background-color: indianred;
         width: fit-content;
-        padding: 4px;
-        border-radius: 4px;
+        padding: 5px;
+        border-radius: 10px;
         color: white;
         font-size: 9px;
         position: absolute;
@@ -273,18 +272,21 @@ export default {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 150px;
-    transition: 0.2s;
+    bottom: 110px;
+    transition: 0.4s;
     font-size: 27px;
-    background-color: $mainColor;
-    opacity: 0.7;
+    background-color: #ff00c6;
+    border: 1px solid #ff00c6;
+    opacity: 0.8;
     color: white;
     padding: 10px;
-    border-radius: 11px;
+    border-radius: 50%;
 
     &:hover {
       opacity: 1;
-      color: #6c4380;
+      color: #ff00c6;
+      font-size: 31px;
+      background-color: #ffffff;
     }
   }
 }
@@ -367,6 +369,7 @@ export default {
 
     .create-exam {
       font-size: 20px;
+      bottom: 150px;
     }
   }
 }

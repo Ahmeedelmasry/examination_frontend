@@ -24,7 +24,7 @@
                   <p class="side-ques">
                     <span class="side-ques-num">1</span><i class="fa fa-arrow-right"></i> Question One
                     <span class="options-block position-absolute">
-                      <i class="fa fa-close options-icon d-none"></i>
+                      <i class="fa fa-close options-icon d-none" style="color: #d71010;"></i>
                     </span>
                   </p>
                 </div>
@@ -43,7 +43,7 @@
               <div class="ques-choise-row position-relative chosen-answer">
                 <span class="ques-choice-num">A</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.85;color: white;"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
@@ -51,14 +51,15 @@
               <div class="ques-choise-row position-relative">
                 <span class="ques-choice-num">B</span>
                 <input class="ques-choice" placeholder="Choice" />
-                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4"></i>
+                <i class="fa fa-close del-choice" style="pointer-events: none; opacity: 0.4;col"></i>
                 <div class="correct-answer-div">
                   <i class="fa fa-check correct-answer"></i>
                 </div>
               </div>
             </div>
             <div class="btns">
-              <button class="add-choice" type="button" @click="addChoice">
+              <button class="add-choice" type="button" @click="addChoice"
+                style=" pointer-events: unset; opacity: 1;background-color: #fbf9f9; padding: 7px; border-radius: 15px;color: #5d5d5d;font-size: 22px;">
                 Add Choice
               </button>
             </div>
@@ -741,7 +742,7 @@ export default {
       height: 46px;
       border-radius: 15px;
       border: 1px solid $titleColor;
-      background: #883fb3;
+      background: #882481e4;
       color: $titleColor;
       font-size: 25px;
       font-weight: 900;
@@ -767,10 +768,12 @@ export default {
   h1 {
     margin: 0 0 5px 0;
     text-align: center;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 1000;
     color: white;
     font-family: cursive;
+    padding: 7.9px;
+    border-radius: 20px;
   }
 }
 
@@ -784,9 +787,8 @@ export default {
   }
 
   .side-ques-container {
-    background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-image: url("../../../assets/subject1.jpg");
     background-size: cover;
-    opacity: .7;
     padding: 0;
     height: 82vh;
     padding-bottom: 20px;
@@ -810,6 +812,7 @@ export default {
         font-size: 10px;
         font-weight: 700;
         margin: 0;
+        color: white;
 
         .side-ques-num {
           font-size: 12px;
@@ -837,7 +840,7 @@ export default {
           .options-icon {
             font-size: 12px;
             transition: 0.2s;
-            color: rgba(109, 107, 107, 0.804);
+            color: rgba(255, 255, 255, 0.804);
           }
         }
       }
@@ -845,7 +848,7 @@ export default {
 
     //Side Active Classes
     .side-active {
-      background-color: rgb(243, 240, 240);
+      background-color: rgba(10, 10, 10, 0.587);
       border-radius: 7px;
       outline: 1px solid #a5a3a3b5;
     }
@@ -889,7 +892,7 @@ export default {
   z-index: 1;
 
   .save-exam {
-    background-color: #883fb3;
+    background-color: #882481e4;
     color: white;
     width: 200px;
     border: 1px solid $mainColor;
@@ -899,21 +902,19 @@ export default {
     font-weight: 900;
     transition: 0.3s;
     box-shadow: 0px 0px 10px -3px black;
-    opacity: 0.6;
     margin-bottom: 10px;
 
     &:hover {
       transition: 12ms;
-    opacity: 1;
-    background-color: #099e09;
+      opacity: 1;
+      background-color: #099e09;
     }
   }
 }
 
 .bank-page .ques-container {
-  background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-image: url("../../../assets/subject1.jpg");
   background-size: cover;
-  opacity: .7;
   height: 82vh;
   padding-top: 110px;
   padding-left: 100px;
@@ -930,11 +931,11 @@ export default {
     .ques-tit-num {
       font-size: 15px;
       font-weight: 700;
-      color: $mainColor;
+      color: white;
     }
 
     i {
-      color: #197278;
+      color: #ffffff;
       font-size: 10px;
       padding-left: 3px;
       padding-right: 10px;
@@ -956,7 +957,7 @@ export default {
     input::placeholder {
       font-size: 20px;
       font-style: italic;
-      color: rgba(0, 0, 0, 0.326);
+      color: rgba(255, 255, 255, 0.718) !important;
     }
   }
 
@@ -981,6 +982,10 @@ export default {
       width: 100%;
       font-weight: 700;
       color: white;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.718) !important;
+      }
     }
 
     .ques-choice-num {
@@ -1023,7 +1028,7 @@ export default {
       i.correct-answer {
         border-radius: 50%;
         padding: 5px;
-        background-color: #5fd95f;
+        background-color: #0eff0e;
         color: white;
         opacity: 0;
         transition: 0.2s;
@@ -1066,17 +1071,23 @@ export default {
       border: none;
       outline: none;
       width: fit-content;
-      font-size: 26px;
       font-weight: 700;
-      color: rgb(173, 206, 239);
       margin-left: 40px;
       margin-top: 15px;
       background-color: transparent;
       letter-spacing: 1px;
       transition: 0.3s;
       margin-bottom: 50px;
-
+      pointer-events: unset;
+      opacity: 1;
+      background-color: rgb(251, 249, 249);
+      border-radius: 8px;
+      color: rgb(93, 93, 93);
+      font-size: 16px !important;
+      padding: 8px 15px !important;
+      border-radius: 8px !important;
     }
+
     .time-degree {
       display: flex;
       flex-direction: column;

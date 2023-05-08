@@ -13,58 +13,28 @@
               <div class="empty-exams" v-if="!getAllExams.length > 0">
                 <p>There is no Exams added yet !</p>
               </div>
-              <div
-                v-for="inst in getAllExams"
-                :key="inst.instructorId"
-                class="row"
-              >
+              <div v-for="inst in getAllExams" :key="inst.instructorId" class="row">
                 <div class="instruc-div" :id="inst.instructorId">
-                  <router-link
-                    :to="`/search-preview/${inst.instructorId}`"
-                    class="d-block"
-                    style="width: fit-content; margin: auto"
-                  >
-                    <img
-                      v-if="inst.profileImg == ''"
-                      src="https://e.top4top.io/p_2363fihh21.jpg"
-                      alt=""
-                    />
+                  <router-link :to="`/search-preview/${inst.instructorId}`" class="d-block"
+                    style="width: fit-content; margin: auto">
+                    <img v-if="inst.profileImg == ''" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
                     <img v-else :src="inst.profileImg" alt="" />
                     <p class="instructor">
                       {{ inst.firstName }} {{ inst.lastName }}
                     </p>
                   </router-link>
                 </div>
-                <div
-                  v-for="exam in inst.exams"
-                  :key="exam.id"
-                  :id="exam.id"
-                  :data-time="exam.time"
-                  :data-degree="exam.totalDegree"
-                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
-                  :style="
-                    exam.status == 'Pending'
-                      ? 'pointer-events: none'
-                      : 'pointer-events: unset'
-                  "
-                >
-                  <div
-                    class="exam card pb-4 position-relative"
-                    style="width: 18rem"
-                  >
-                    <img
-                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
-                      class="exam-img-top"
-                      alt="..."
-                      @click="
-                        openExam(inst.instructorId, inst.studentId, exam.examId)
-                      "
-                    />
+                <div v-for="exam in inst.exams" :key="exam.id" :id="exam.id" :data-time="exam.time"
+                  :data-degree="exam.totalDegree" class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" :style="exam.status == 'Pending'
+                    ? 'pointer-events: none'
+                    : 'pointer-events: unset'
+                    ">
+                  <div class="exam card pb-4 position-relative" style="width: 18rem">
+                    <img src="../../../assets/quiz.jpg" class="exam-img-top" alt="..." @click="
+                      openExam(inst.instructorId, inst.studentId, exam.examId)
+                      " />
                     <div class="exam-body card-body">
-                      <h5
-                        v-if="exam.title.length > 15"
-                        class="exam-title card-title"
-                      >
+                      <h5 v-if="exam.title.length > 15" class="exam-title card-title">
                         {{ exam.title.slice(0, 15) }} ...
                       </h5>
                       <h5 v-else class="exam-title card-title">
@@ -79,13 +49,9 @@
                       <p class="exam-end-time">
                         End: {{ exam.endTimeAt.slice(0, 5) }}
                       </p>
-                      <p
-                        class="exam-status"
-                        :style="
-                          (exam.status == 'Closed' && { color: 'red' }) ||
-                          (exam.status == 'Pending' && { color: 'orange' })
-                        "
-                      >
+                      <p class="exam-status" :style="(exam.status == 'Closed' && { color: 'red' }) ||
+                        (exam.status == 'Pending' && { color: 'orange' })
+                        ">
                         {{ exam.status }}
                       </p>
                     </div>
@@ -104,37 +70,21 @@
               <div class="empty-urls" v-if="!savedUrlsData.length > 0">
                 <p>There is no URLs Saved yet !</p>
               </div>
-              <ul
-                class="list-unstyled pt-2"
-                v-for="urlData in savedUrlsData"
-                :key="urlData._id"
-              >
+              <ul class="list-unstyled pt-2" v-for="urlData in savedUrlsData" :key="urlData._id">
                 <div :id="urlData.id" class="instruc-div">
                   <router-link :to="`/search-preview/${urlData.instructorId}`">
-                    <img
-                      v-if="!urlData.profileImg"
-                      src="https://e.top4top.io/p_2363fihh21.jpg"
-                      alt=""
-                    />
+                    <img v-if="!urlData.profileImg" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
                     <img v-else :src="urlData.profileImg" alt="" />
                   </router-link>
                   <p class="instructor">
                     {{ urlData.firstName }} {{ urlData.lastName }}
                   </p>
                 </div>
-                <li
-                  v-for="li in urlData.urls"
-                  :key="li._id"
-                  class="d-flex justify-content-between align-items-center"
-                >
+                <li v-for="li in urlData.urls" :key="li._id" class="d-flex justify-content-between align-items-center">
                   <a :href="li.link" target="_blank">
                     <span>{{ li.desc }}</span>
                   </a>
-                  <button
-                    href="#"
-                    class="del-url"
-                    @click="deleteUrl(urlData.instructorId, li._id)"
-                  >
+                  <button href="#" class="del-url" @click="deleteUrl(urlData.instructorId, li._id)">
                     <i class="fa fa-close"></i>
                   </button>
                 </li>
@@ -385,11 +335,12 @@ export default {
     text-decoration: none !important;
     color: unset !important;
   }
+
   .add-exam-div {
     position: relative;
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-image: url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-image: url("../../../assets/books-7431944_960_720.jpg");
     background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
@@ -397,58 +348,74 @@ export default {
     width: 97%;
     margin-left: auto;
     margin-right: auto;
+
     .title h3 {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
-      color: black;
+      color: rgb(255, 255, 255);
     }
+
     .exams {
       height: 89%;
       overflow-y: auto;
       overflow-x: hidden;
       position: relative;
+
       .empty-exams {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+
         p {
           font-style: italic;
           text-align: center;
           font-size: 30px;
-          color: #8684849e;
+          color: #650089c9;
           font-weight: 500;
+          background-color: white;
         }
       }
+
       .instruc-div {
         text-align: center;
         width: 100%;
+
         img {
-          width: 30px;
-          height: 30px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           cursor: pointer;
         }
+
         .instructor {
-          font-weight: 700;
-          color: #838181;
+          font-weight: 900;
+          color: #ffffff;
           margin-left: 10px;
           text-transform: capitalize;
+          font-size: 15px;
+          padding: 7px;
+          margin-top: 3px;
+          border-radius: 15px;
+          background-color: rgb(4, 127, 119);
         }
       }
+
       .exam {
         border-radius: 7px !important;
         width: 100% !important;
         overflow: hidden;
         margin-bottom: 10px;
+
         img {
           height: 120px !important;
           width: 100%;
           object-fit: cover;
           cursor: pointer;
         }
+
         .exam-body {
           padding-left: 10px !important;
           padding-right: 10px !important;
@@ -459,29 +426,34 @@ export default {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
           .exam-title {
             font-size: 14px !important;
             font-weight: 500 !important;
             margin-bottom: 5px;
           }
+
           .exam-date {
             font-size: 10px !important;
             font-weight: 500 !important;
             margin-bottom: 3px;
             color: indianred;
           }
+
           .exam-start-time {
             font-size: 10px !important;
             font-weight: 500 !important;
             margin-bottom: 3px;
             color: #3569da;
           }
+
           .exam-end-time {
             font-size: 10px !important;
             font-weight: 500 !important;
             margin-bottom: 3px;
             color: indianred;
           }
+
           .exam-status {
             font-size: 10px;
             font-weight: 700;
@@ -501,6 +473,7 @@ export default {
       }
     }
   }
+
   .add-url-div {
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
@@ -509,39 +482,46 @@ export default {
     overflow: hidden;
     margin-top: 30px;
     width: 97%;
-    background-image: url("https://i.pinimg.com/736x/60/22/52/602252b4b408f8b8902c94868e6f3ced.jpg");
+    background-image: url("../../../assets/glasses-5868861_960_720.jpg");
     background-size: cover;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+
     .title {
       background-color: $mainColor;
+
       h3 {
         font-size: 30px;
         font-weight: 900;
-        color: black;
+        color: rgb(255, 255, 255);
       }
     }
+
     .urls {
       height: 89%;
       overflow-y: auto;
       overflow-x: hidden;
       box-shadow: 0px 2px 6px -5px black;
       position: relative;
+
       .empty-urls {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+
         p {
           font-style: italic;
           text-align: center;
           font-size: 30px;
-          color: #8684849e;
+          color: #650089c9;
           font-weight: 500;
+          background-color: white;
         }
       }
+
       li {
         margin-bottom: 15px;
         display: flex;
@@ -551,16 +531,20 @@ export default {
         padding: 10px 20px;
         border-bottom: 1px solid black;
         border-top: 1px solid black;
+
         a {
           transition: 0.1s all ease-in-out;
+
           &:hover {
             color: rgb(57, 57, 254) !important;
           }
         }
+
         span {
           font-size: 15px;
           font-weight: 700;
         }
+
         .del-url {
           background-color: rgba(205, 92, 92, 0.739);
           width: 20px;
@@ -575,31 +559,42 @@ export default {
           cursor: pointer;
           border: none;
           outline: none;
+
           &:hover {
             background-color: indianred;
           }
         }
       }
+
       .instruc-div {
         display: flex;
         flex-direction: column;
         align-items: center;
+
         img {
-          width: 30px;
-          height: 30px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           cursor: pointer;
         }
+
         .instructor {
-          font-weight: 700;
-          color: #838181;
+          font-weight: 900;
+          color: #ffffff;
           margin-left: 10px;
           text-transform: capitalize;
+          font-size: 15px;
+          padding: 6px;
+          margin-top: 3px;
+          border-radius: 15px;
+          background-color: #047f77;
         }
       }
     }
   }
 }
+
+
 .student-home .result-popup {
   position: fixed;
   left: 0;
@@ -611,6 +606,7 @@ export default {
   display: none;
   justify-content: center;
   align-items: center;
+
   .body {
     width: 50%;
     color: black;
@@ -619,101 +615,126 @@ export default {
     text-align: center;
     border-radius: 11px;
     padding-bottom: 30px;
+
     p {
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 500;
       margin-bottom: 30px;
     }
+
     th {
       font-size: 24px;
       font-weight: 600;
       font-family: cursive;
     }
+
     .total,
     .result,
     .percentage {
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 30px;
+      font-weight: 900;
       padding-top: 15px;
       letter-spacing: 1px;
     }
+
     button {
       border: 1px solid #0f0f0f;
-      background-color: #883fb3;
+      background-color: #882481e4;
       color: white;
       border-radius: 4px;
       padding: 5px 13px 7px;
       margin-top: 10px;
       width: 155px;
+      font-size: 25px;
     }
+
     button:hover {
       background-color: #099e09;
     }
   }
 }
+
 //Media Queries
 @media (max-width: 990px) {
+
   .student-home .add-exam-div,
   .student-home .add-url-div {
     width: 100%;
+
     h3 {
       font-size: 20px !important;
     }
   }
+
   .student-home .add-url-div .urls .empty-urls p {
     font-size: 19px;
   }
+
   .student-home .add-exam-div .exams .empty-exams p {
     font-size: 19px;
   }
+
   .student-home .result-popup .body {
     width: 62%;
   }
 }
+
 @media (max-width: 767px) {
   .student-home .add-url-div .urls li span {
     font-size: 12px;
   }
+
   .student-home {
     .add-exam-div {
       .title h3 {
         font-size: 17px;
       }
+
       .exams {
         height: 90%;
       }
+
       .exams .exam .exam-body {
         .exam-title {
           font-size: 11px !important;
         }
+
         .exam-date {
           font-size: 7px !important;
         }
+
         .exam-start-time {
           font-size: 7px !important;
         }
+
         .exam-end-time {
           font-size: 7px !important;
         }
+
         .exam-status {
           font-size: 7px;
         }
       }
     }
+
     .add-url-div {
       .title h3 {
         font-size: 17px;
       }
+
       .urls {
         height: 90%;
+
         li a {
           font-size: 9px;
         }
       }
+
       .add-url {
         font-size: 15px;
         padding: 7px 12px;
       }
+
       .write-url-div {
         input {
           padding-top: 2px;
@@ -721,6 +742,7 @@ export default {
           font-size: 12px;
           width: 100%;
         }
+
         button .confirm-url {
           width: 25px;
           height: 25px;
@@ -729,42 +751,53 @@ export default {
       }
     }
   }
+
   .student-home .result-popup .body {
     p {
       font-size: 15px;
     }
+
     th {
       font-size: 14px;
     }
+
     td {
       font-size: 16px;
     }
+
     button {
       font-size: 12px;
     }
   }
 }
+
 @media (max-width: 575px) {
   .student-home {
     margin-bottom: 20px;
+
     .add-exam-div {
       border-radius: 20px;
     }
+
     .add-exam-div .exams .empty-exams p {
       font-size: 15px;
     }
+
     .add-url-div {
       height: 62vh;
       border-radius: 20px;
+
       .urls {
         .empty-urls p {
           font-size: 15px;
         }
       }
+
       .write-url-div {
         button {
           margin-top: 10px;
         }
+
         input {
           padding-top: 5px;
           padding-bottom: 7px;
@@ -774,17 +807,22 @@ export default {
       }
     }
   }
+
   .student-home .result-popup .body {
     width: 90%;
+
     p {
       font-size: 12px;
     }
+
     th {
       font-size: 11px;
     }
+
     td {
       font-size: 13px !important;
     }
+
     button {
       font-size: 10px;
     }

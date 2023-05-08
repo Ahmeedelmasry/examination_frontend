@@ -67,7 +67,7 @@
             }}</span>
           </div>
           <div class="user-position d-flex justify-content-center">
-            <label class="lbl mr-2" style="cursor: pointer;font-size: larger">
+            <label class="lbl mr-2" style="color:black;cursor: pointer;font-size: larger">
               <input
                 type="radio"
                 name="position"
@@ -78,7 +78,7 @@
               />
               Student
             </label>
-            <label class="lbl ml-2" style="cursor: pointer;font-size: larger;">
+            <label class="lbl ml-2" style="cursor: pointer;font-size: larger;color:black;">
               <input
                 type="radio"
                 name="position"
@@ -96,7 +96,7 @@
             v-if="newUser.userRole == 'STUDENT'"
           >
             <div class="d-flex flex-column">
-              <label style="color: white;font-family:cursive; font-size: 17px" for="grade_no"
+              <label style="color: rgb(0, 0, 0);font-family:cursive; font-size: 17px" for="grade_no"
                 >Your Grade</label
               >
               <select
@@ -105,7 +105,7 @@
                 style="
                   padding: 5px 10px;
                   border-radius: 3px;
-                  background: white;
+                  background: rgb(255, 255, 255);
                 "
                 v-model="newUser.gradeNo"
               >
@@ -116,7 +116,7 @@
               </select>
             </div>
             <div class="d-flex flex-column">
-              <label for="section_no" style="color: white;font-family:cursive; font-size:17px"
+              <label for="section_no" style="color: rgb(0, 0, 0);font-family:cursive; font-size:17px"
                 >Your Section</label
               >
               <select
@@ -157,7 +157,7 @@
             <label
               class="d-block text-center"
               for="upload"
-              style="color: white;font-family:cursive;font-size: 18px"
+              style="color: rgb(0, 0, 0);font-family:cursive;font-size: 18px"
               >Upload 3 Security Images</label
             >
             <div
@@ -170,7 +170,7 @@
             >
               <i
                 class="fa fa-camera"
-                style="color: white; font-size: 30px; cursor: pointer"
+                style="color: rgb(0, 0, 0); font-size: 30px; cursor: pointer"
               ></i>
               <input
                 type="file"
@@ -214,7 +214,7 @@
                 <i
                   class="fa fa-close"
                   style="
-                    color: wheat;
+                    color: #000000;;
                     text-align: center;
                     margin: 10px auto 0;
                     cursor: pointer;
@@ -432,12 +432,12 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
-    background-size: contain;
+    background-image: url("../../../assets/login.jpg");
+    background-size: cover;
   }
   label.lbl {
-    color: #ffffff;
-    font-size: 3.4em;
+    color: #000000;
+    font-size: 2.7em;
     justify-content: center;
     display: flex;
     margin: 0px;
@@ -483,18 +483,18 @@ export default {
     }
   }
   button {
-    width: 60%;
+    width: 50%;
     height: 40px;
     margin: 10px auto;
     justify-content: center;
     display: block;
     color: #fff;
-    background-color: #883fb3;
-    font-size: 25px;
+    background-color: #882481e4;
+    font-size: 22px;
     font-weight: bold;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 70px;
     transition: 0.3s ease-in;
     cursor: pointer;
     margin-top: 0px;
@@ -550,8 +550,11 @@ export default {
     }
   }
   span.err {
-    background-color: #fff;
+    font-family:cursive;
+    font-weight: 800;
+    align-content: center;
     position:relative;
+    border-radius: 20px;
     top: 100%;
     left: 10px;
     display: block;
@@ -560,6 +563,7 @@ export default {
     font-size: 18px;
     width: 70%;
     margin: auto;
+    padding: 10px;
   }
   .loading {
     opacity: 0;

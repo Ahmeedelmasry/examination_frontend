@@ -6,38 +6,24 @@
       <!-- Profile Data -->
       <div class="profile-data mb-5 col-11 col-lg-7 mx-auto">
         <div class="the-img text-center">
-          <img
-            src="https://e.top4top.io/p_2363fihh21.jpg"
-            alt=""
-            style="
+          <img src="https://e.top4top.io/p_2363fihh21.jpg" alt="" style="
               width: 200px;
               height: 200px;
               border-radius: 50%;
               margin-bottom: 30px;
-            "
-            @click="showImg"
-          />
+            " @click="showImg" />
         </div>
         <div class="the-data">
-          <p
-            class="user-name text-center"
-            style="
+          <p class="user-name text-center" style="
               font-size: 28px;
               font-weight: 900;
               text-transform: capitalize;
               color: white;
-            "
-          ></p>
-          <p
-            class="user-email text-center"
-            style="font-size: 28px; font-weight: 900; color: white"
-          ></p>
+            "></p>
+          <p class="user-email text-center" style="font-size: 28px; font-weight: 900; color: white"></p>
         </div>
         <div class="follow text-center pt-3">
-          <button
-            v-if="followingModule.isFollowed"
-            class="follow-btn followed"
-            style="
+          <button v-if="followingModule.isFollowed" class="follow-btn followed" style="
               background-color: #2a497d;
               color: white;
               transition: 0.3s all ease-in-out;
@@ -48,16 +34,11 @@
               font-size: 25px;
               font-weight: 900;
               transition: 0.3s;
-            "
-            @click="followUser"
-          >
+            " @click="followUser">
             Unfollow
           </button>
-          <button
-            v-else
-            class="'follow-btn'"
-            style="
-              background-color: #2a497d;
+          <button v-else class="'follow-btn'" style="
+              background-color: #047f77;
               color: white;
               transition: 0.3s all ease-in-out;
               margin-top: 10px;
@@ -67,9 +48,7 @@
               font-size: 25px;
               font-weight: 900;
               transition: 0.3s;
-            "
-            @click="followUser"
-          >
+            " @click="followUser">
             follow
           </button>
         </div>
@@ -80,36 +59,43 @@
           <div class="add-exam-div">
             <div class="title">
               <h3 class="text-center py-3">Open Exams</h3>
+
             </div>
             <div class="exams px-3">
-              <div class="empty-exams" v-if="!getAllExams">
-                <p>There is no Exams open now!</p>
+              <div class="empty-exam" style="  position: absolute;
+                              top: 52%;
+                             left: 50%;
+                          transform: translate(-50%, -50%);
+                          width: 100%;" v-if="!getAllExams.length">
+                <p class="nnn" style="font-style: italic;
+                  text-align: center;
+                  font-size: 28px;
+                  color: #650089c9;
+                  font-weight: 500;
+                  background-color: white;">There is no Exams open now !</p>
               </div>
               <div class="row">
-                <div
-                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
-                  v-for="(exam, index) in getAllExams"
-                  :key="index"
-                >
-                  <div
-                    class="exam card pb-4 position-relative"
-                    style="width: 18rem"
-                  >
+                <div class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" v-for="(exam, index) in getAllExams" :key="index">
+                  <div class="exam card pb-4 position-relative" style="width: 15rem;">
                     <img
-                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
-                      class="exam-img-top"
-                      alt="..."
-                      @click="
-                        openExam(
+                      src="../../../assets/quiz.jpg"
+                      class="exam-img-top" alt="..." @click="openExam(
                           exam.instructorUserId,
                           allUserInfo.userId,
                           exam._id,
                           exam
                         )
-                      "
-                      style="cursor: pointer"
-                    />
-                    <div class="exam-body card-body">
+                        " style="cursor: pointer" />
+                    <div class="exam-body card-body" style="background-color: white;padding-left: 10px!important;
+                              padding-right: 10px!important;
+                              padding-top: 10px!important;
+                              padding-bottom: 10px!important;
+                              text-align: center;
+                              display: flex;
+                              font-size:small;
+                                                        flex-direction: column;
+                              justify-content: center;
+                              align-items: center;">
                       <h5 class="exam-title card-title">
                         {{ exam.title }}
                       </h5>
@@ -122,16 +108,12 @@
                       <p class="exam-end-time">
                         End: {{ exam.endTimeAt.slice(0, 5) }}
                       </p>
-                      <p
-                        class="exam-status"
-                        :style="
-                          exam.status == 'Pending'
-                            ? 'color: orange'
-                            : exam.status == 'Closed'
-                            ? 'color: indianred'
-                            : 'color: #46b846'
-                        "
-                      >
+                      <p class="exam-status" :style="exam.status == 'Pending'
+                        ? 'color: orange'
+                        : exam.status == 'Closed'
+                          ? 'color: indianred'
+                          : 'color: #46b846'
+                        ">
                         {{ exam.status }}
                       </p>
                     </div>
@@ -148,7 +130,7 @@
             </div>
             <div class="urls">
               <div class="empty-urls" v-if="!instrucHome.urls">
-                <p>There is no URLs available yet !</p>
+                <p class="mmm">There is no URLs available yet !</p>
               </div>
               <ul class="list-unstyled pt-3" v-else>
                 <li v-for="(myLink, index) in instrucHome.urls" :key="index">
@@ -188,18 +170,14 @@
       </div>
     </div>
     <div class="show-prof-img">
-      <span
-        style="
+      <span style="
           color: white;
           position: absolute;
           font-size: 25px;
           top: 40px;
           left: 40px;
           cursor: pointer;
-        "
-        @click="closePhoto"
-        >X</span
-      >
+        " @click="closePhoto">X</span>
       <div class="img-feild"></div>
     </div>
   </div>
@@ -482,10 +460,6 @@ export default {
         return el.grade == this.allUserInfo.gradeNo && el.status == "Open";
       });
       await this.doGetUrls(this.$route.params.id);
-      await this.doGetSearchedExams(payload);
-      if (this.followingModule.stExams[0]) {
-        this.getAllExams = this.followingModule.stExams[0].exams;
-      }
       document.querySelector(".search-preview .loading").style.cssText = `
         opacity: 0; visibility: hidden
       `;
@@ -500,11 +474,12 @@ export default {
 
 .search-preview {
   .profile-data {
-    background-image: url("https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg");
+    background-image: url("../../../assets/6107199.jpg");
+    background-size: cover;
     margin: auto;
     padding: 30px 0;
     border-radius: $bRadius;
-    opacity: 0.9;
+    opacity: 0.95;
 
     button {
       border-radius: $bRadius;
@@ -531,7 +506,8 @@ export default {
     position: relative;
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-color: white;
+    background-image: url("../../../assets/books-7431944_960_720.jpg");
+    background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
     margin-top: 30px;
@@ -546,22 +522,19 @@ export default {
       color: $titleColor;
     }
 
-    .exams {
-      height: 89%;
-      overflow-y: auto;
-      overflow-x: hidden;
+    .exam {
+      height: 50%;
+      box-shadow: 0px 2px 6px -5px black;
       position: relative;
-      background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
-      background-size: cover;
-
-      .empty-exams {
+  
+      .empty-exam {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
 
-        p {
+        .empty-exam.nnn {
           font-style: italic;
           text-align: center;
           font-size: 28px;
@@ -644,7 +617,8 @@ export default {
   .add-url-div {
     height: 75vh;
     box-shadow: 0px 0px 5px -2px black;
-    background-color: white;
+    background-image: url("../../../assets/books-7431944_960_720.jpg");
+    background-size: cover;
     border-radius: $bRadius;
     overflow: hidden;
     margin-top: 30px;
@@ -654,7 +628,7 @@ export default {
     position: relative;
 
     .title {
-      background-color: $mainColor;
+      background-color: #fd6ee079;
 
       h3 {
         font-size: 30px;
@@ -669,9 +643,8 @@ export default {
       overflow-x: hidden;
       box-shadow: 0px 2px 6px -5px black;
       position: relative;
-      background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
-      background-size: cover;
-
+      background-image: url("../../../assets/glasses-5868861_960_720.jpg");
+    background-size: cover;
       .empty-urls {
         position: absolute;
         top: 45%;
@@ -679,7 +652,7 @@ export default {
         transform: translate(-50%, -50%);
         width: 100%;
 
-        p {
+        .mmm {
           font-style: italic;
           text-align: center;
           font-size: 28px;
@@ -694,7 +667,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: white;
+        background: #edddd4;;
         padding: 10px 20px;
         border-bottom: 1px solid black;
         border-top: 1px solid black;
@@ -741,6 +714,7 @@ export default {
   display: none;
   justify-content: center;
   align-items: center;
+
   .body {
     width: 50%;
     color: black;
@@ -749,33 +723,39 @@ export default {
     text-align: center;
     border-radius: 11px;
     padding-bottom: 30px;
+
     p {
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 30px;
     }
+
     th {
       font-size: 24px;
       font-weight: 600;
       font-family: cursive;
     }
+
     .total,
     .result,
     .percentage {
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 900;
       padding-top: 15px;
       letter-spacing: 1px;
     }
+
     button {
       border: 1px solid #0f0f0f;
-      background-color: #883fb3;
+      background-color: #882481e4;
       color: white;
       border-radius: 4px;
       padding: 5px 13px 7px;
       margin-top: 10px;
       width: 155px;
+      font-size: 25px;
     }
+
     button:hover {
       background-color: #099e09;
     }

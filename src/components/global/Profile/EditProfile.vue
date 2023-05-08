@@ -292,7 +292,7 @@ export default {
   .main-col {
     padding-bottom: 10px;
     box-shadow: 0px 0px 10px -7px black;
-    background-image: url("https://png.pngtree.com/background/20211217/original/pngtree-royal-golden-blue-mandala-art-background-with-border-invitation-card-wedding-picture-image_1596347.jpg");
+    background-image: url("../../../assets/5393184.jpg");
     background-size: cover;
     border-radius: 30px;
     margin-top: 30px !important;
@@ -304,7 +304,7 @@ export default {
     border: none;
     outline: none;
     background-color: none;
-    color: $titleColor;
+    color: black;
     padding-left: 10px;
     text-transform: capitalize;
     width: 130%;
@@ -361,13 +361,13 @@ export default {
 
   i.show-password,
   i.hide-password {
-    right: -49px;
-    top: 6px;
+    right: -50px;
+    top: 9px;
     font-size: 14px;
     opacity: 0.4;
     transition: 0.2s;
     cursor: pointer;
-    color: $titleColor;
+    color: black;
     &:hover {
       opacity: 1;
     }
@@ -415,7 +415,7 @@ export default {
         font-size: 20px;
         font-weight: 900;
         width: 100%;
-        opacity: 0.9;
+        opacity: 1;
       }
       .back:hover {
         transition: 12ms;

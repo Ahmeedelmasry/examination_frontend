@@ -27,8 +27,8 @@
           <router-link to="/signup">Sign up</router-link>
         </div>
         <div class="forget text-center" style="margin-top: 70px;">
-          <span style="color: white; margin-right: 10px; font-size: 18px;font-weight:420;">If you Forget Password?</span>
-          <router-link to="forget-password" style="color: white; font-size: 25px;font-weight: bold;">Click
+          <span style="color: rgb(0, 0, 0); margin-right: 10px; font-size: 18px;font-weight:420;">If you Forget Password?</span>
+          <router-link to="forget-password" style="color: rgb(0, 0, 0); font-size: 21px;font-weight: bold;">Click
             Here</router-link>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <video id="video" autoplay muted width="720" height="560"
           :style="!webCam ? 'display: none' : 'display: block'"></video>
         <img width="720" height="560" src="@/assets/home/download.png" class="display-img" alt="" :style="`${webCam ? 'display: none;' : 'display: block;'
-          }border-radius: 7px`" />
+            }border-radius: 7px`" />
       </div>
       <div style="
                 display: flex;
@@ -365,13 +365,13 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
-    background-size: contain;
+    background-image: url("../../../assets/login.jpg");
+    background-size: cover;
   }
 
   label {
-    color: rgb(255, 255, 255);
-    font-size: 3.7em;
+    color: rgb(0, 0, 0);
+    font-size: 2.7em;
     justify-content: center;
     display: flex;
     margin: 0px;
@@ -379,7 +379,7 @@ export default {
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
     transition: 0.5s ease-in-out;
-  
+
   }
 
   input {
@@ -420,17 +420,17 @@ export default {
     justify-content: center;
     display: block;
     color: #ffffff;
-    background-color: #883fb3;
-    font-size: 25px;
+    background-color: #882481e4;
     font-weight: bold;
     margin-top: 20px;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 70px;
     transition: 0.1s ease-in;
     cursor: pointer;
     margin-top: 40px;
-    opacity: 0.8;
+    font-size: 22px;
+    opacity: 0.9;
   }
 
   button:hover {

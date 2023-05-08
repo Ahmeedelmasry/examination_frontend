@@ -652,14 +652,14 @@ body {
   position: relative;
   margin-bottom: 20px;
   transition: 0.2s;
-  color: #c4d0df;
+  color: #ffffff;
 
   i {
     width: 40px;
   }
 
   &:hover {
-    background-color: #152948;
+    background-color: #070707b5;
   }
 }
 

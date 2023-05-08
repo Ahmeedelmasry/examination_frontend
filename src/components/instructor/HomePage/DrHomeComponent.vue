@@ -18,9 +18,7 @@
                 <div v-for="exam in getAllExams" :key="exam.id" class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
                   :id="exam.id" :data-time="exam.time" :data-degree="exam.totalDegree">
                   <div class="exam card pb-4 position-relative" style="width: 18rem">
-                    <img
-                      src="https://as2.ftcdn.net/v2/jpg/00/91/50/75/1000_F_91507581_TxUXeZHA8qg26UI0uKRhpZrJDxs3UbMn.jpg"
-                      class="exam-img-top" alt="..." @click="previewExam(exam._id)" />
+                    <img src="../../../assets/quiz.jpg" class="exam-img-top" alt="..." @click="previewExam(exam._id)" />
                     <div class="exam-body card-body">
                       <div class="d-flex align-items-center">
                         <h5 class="exam-title card-title">
@@ -79,7 +77,7 @@
                       </div>
                       <div class="d-flex pl-4 mr-auto pt-3" style="gap: 10px">
                         <div class="d-flex flex-column">
-                          <label style="font-size: 13px; margin-bottom: 3px" for="grade_no">Grade</label>
+                          <label style="font-size: 13px; margin-bottom: 3px;color: white" for="grade_no">Grade</label>
                           <select name="grade_no" id="grade_no" style="padding: 5px 10px; border-radius: 3px"
                             v-model="gradeNo" @change="filterStudents">
                             <option value="all">All Grades</option>
@@ -90,7 +88,7 @@
                           </select>
                         </div>
                         <div class="d-flex flex-column">
-                          <label for="section_no" style="font-size: 13px; margin-bottom: 3px">Section</label>
+                          <label for="section_no" style="font-size: 13px;color: white; margin-bottom: 3px">Section</label>
                           <select style="padding: 5px 10px; border-radius: 3px" name="section_no" id="section_no"
                             v-model="sectionNo" :disabled="gradeNo == 'all'" @change="filterStudents">
                             <option value="all">All Sections</option>
@@ -586,6 +584,11 @@ export default {
     color: unset !important;
   }
 
+  select:disabled {
+    color: white;
+    background-color: rgb(113, 113, 113);
+  }
+
   .add-exam-div {
     position: relative;
     height: 75vh;
@@ -597,20 +600,18 @@ export default {
     width: 97%;
     margin-left: auto;
     margin-right: auto;
-    background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
-    background-size: contain;
+    background-image: url("../../../assets/books-7431944_960_720.jpg");
+    background-size: cover;
 
     .title h3 {
       font-size: 30px;
       font-weight: 900;
       background-color: $mainColor;
-      color: black;
+      color: rgb(255, 255, 255);
       margin-bottom: 0;
     }
 
     .exams {
-      background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
-      background-size: cover;
       max-height: 47vh;
       min-height: 47vh;
       overflow-y: auto;
@@ -693,10 +694,13 @@ export default {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          background-color: white;
+          background-image: url(../../../assets/abstract-networking-concept-still-life-assortment.jpg);
+          background-size: cover;
+          background-position: center center;
           border-radius: 10px;
           z-index: 1000;
           overflow-y: auto;
+          box-shadow: 0px 0px 22px -5px black;
 
           .select-all p {
             padding-right: 22px;
@@ -759,6 +763,7 @@ export default {
               font-size: 25px;
               color: rgba(134, 132, 132, 0.6196078431);
               font-weight: 500;
+              color: white;
             }
           }
         }
@@ -838,17 +843,20 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       bottom: 34px;
-      transition: 0.2s;
+      transition: 0.4s;
       font-size: 27px;
-      background-color: $mainColor;
-      opacity: 0.7;
+      background-color: #ff00c6;
+      opacity: 0.8;
       color: white;
       padding: 10px;
-      border-radius: 11px;
+      border-radius: 50%;
+      border: 1px solid #ff00c6;
 
       &:hover {
         opacity: 1;
-        color: #6c4380;
+        color: #ff00c6;
+        font-size: 31px;
+        background-color: #ffffff;
       }
     }
   }
@@ -864,8 +872,8 @@ export default {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    background-image: url("https://as2.ftcdn.net/v2/jpg/02/43/22/71/1000_F_243227135_0MKgZJefxBmaClJmhFdgfSByHI4n8UVy.jpg");
-    background-size: contain;
+    background-image: url("../../../assets/glasses-5868861_960_720.jpg");
+    background-size: cover;
 
     .title {
       background-color: $mainColor;
@@ -873,7 +881,7 @@ export default {
       h3 {
         font-size: 30px;
         font-weight: 900;
-        color: black;
+        color: rgb(255, 255, 255);
       }
     }
 
@@ -884,8 +892,7 @@ export default {
       overflow-x: hidden;
       border-bottom: 13px solid $mainColor;
       position: relative;
-      background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-creative-housing-sun-background-books-education-poster-picture-image_557788.jpg");
-      background-size: cover;
+
 
       .empty-urls {
         position: absolute;
@@ -950,18 +957,21 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       bottom: 34px;
-      transition: 0.2s;
+      transition: 0.4s;
       font-size: 27px;
-      background-color: $mainColor;
-      opacity: 0.7;
+      background-color: #ff00c6;
+      opacity: 0.8;
       color: white;
       padding: 10px;
-      border-radius: 11px;
+      border-radius: 50px;
       cursor: pointer;
+      border: 1px solid #ff00c6;
 
       &:hover {
         opacity: 1;
-        color: #6c4380;
+        color: #ff00c6;
+        font-size: 31px;
+        background-color: #ffffff;
       }
     }
 
@@ -986,7 +996,7 @@ export default {
         border: none;
         outline: none;
         padding-left: 15px;
-        color: rgb(235, 216, 237);
+        color: rgb(255, 255, 255);
         box-shadow: #c0f1f5 0px 0px 0px 1px inset;
         background-color: transparent;
         border-radius: 3px;
@@ -1180,7 +1190,9 @@ export default {
         }
       }
 
-
+      .add-url {
+        font-size: 20px;
+      }
 
       .write-url-div {
         input {
@@ -1309,4 +1321,5 @@ export default {
       font-size: 11px !important;
     }
   }
-}</style>
+}
+</style>

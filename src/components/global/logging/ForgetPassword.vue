@@ -128,13 +128,13 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url("https://st2.depositphotos.com/4279949/7636/i/450/depositphotos_76368369-stock-photo-blue-hexagon-background-texture.jpg");
-    background-size: contain;
+    background-image: url("../../../assets/login.jpg");
+    background-size: cover;
   }
   label {
-    color: #fff;
+    color: #000000;
     font-family: cursive;
-    font-size: 2.8em;
+    font-size: 2.1em;
     justify-content: center;
     display: flex;
     margin: 0px;
@@ -146,7 +146,7 @@ export default {
   input {
     width: 70%;
     height: 40px;
-    background: #e0dede;
+    background: #ffffff;
     justify-content: center;
     display: flex;
     margin: 100px auto;
@@ -171,19 +171,19 @@ export default {
     }
   }
   button {
-    width: 55%;
+    width: 50%;
     height: 40px;
     margin: 10px auto;
     justify-content: center;
     display: block;
     color: #fff;
-    background-color: #883fb3;
-    font-size: 1em;
+    background-color: #882481e4;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 20px;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 70px;
     transition: 0.1s ease-in;
     cursor: pointer;
     margin-top: 40px;

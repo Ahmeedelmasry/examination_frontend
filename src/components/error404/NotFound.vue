@@ -12,10 +12,12 @@
   position: fixed;
   left: 0;
   top: 0;
+
   img {
     width: 100%;
     height: 100%;
   }
+
   a {
     z-index: 1;
     position: absolute;

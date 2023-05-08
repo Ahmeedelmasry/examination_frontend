@@ -7,14 +7,10 @@
         <span class="text-center d-block"></span>
       </div>
       <div class="row">
-        <div
-          class="ml-5 mr-5 ques-container mb-4 px-3ml-5 mr-5 ques-container mb-4 px-3"
-          v-for="(ques, index) in examData.questions"
-          :key="index"
-          :style="index == counter ? 'display: flex' : 'display: none'"
-          :data-cac="ques.correctAnswerColumn"
-          :data-dg="ques.degree"
-        >
+        <div class="ml-5 mr-5 ques-container mb-4 px-3ml-5 mr-5 ques-container mb-4 px-3"
+          v-for="(ques, index) in examData.questions" :key="index"
+          :style="index == counter ? 'display: flex' : 'display: none'" :data-cac="ques.correctAnswerColumn"
+          :data-dg="ques.degree">
           <div class="ques-tit-row">
             <span class="ques-tit-num">{{ index + 1 }}</span>
             <i class="fa fa-arrow-right"></i>
@@ -22,11 +18,7 @@
           </div>
           <div class="choices">
             <span v-for="(choice, index) in ques.choices" :key="index">
-              <div
-                class="ques-choise-row position-relative"
-                @click="chooseCorrect"
-                v-if="choice"
-              >
+              <div class="ques-choise-row position-relative" @click="chooseCorrect" v-if="choice">
                 <span class="ques-choice-num">{{ index + 1 }}</span>
                 <p class="ques-choice">{{ choice }}</p>
                 <i class="fa fa-check correct-answer"></i>
@@ -54,22 +46,29 @@
         <div class="alert-btns">
           <button class="submit-finish" @click="timeOutPop">Result</button>
           <router-link to="/">
-            <button class="cancel">Home</button></router-link
-          >
+            <button class="cancel">Home</button></router-link>
         </div>
       </div>
     </div>
     <div class="result-popup">
       <div class="body">
-        <p class="alert alert-success">
+        <p class="alert alert-success" style="font-size: 21px;
+      font-weight: 500;
+      margin-bottom: 30px;">
           You have finished the exam successfully!
         </p>
         <table class="table-control w-100 mb-4">
           <thead>
             <tr>
-              <th>Exam Degree</th>
-              <th>Result Degree</th>
-              <th>Percentage</th>
+              <th style="font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;">Exam Degree</th>
+              <th style="font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;">Result Degree</th>
+              <th style="font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;">Percentage</th>
             </tr>
           </thead>
           <tbody>
@@ -82,8 +81,14 @@
         </table>
         <div class="result-btns">
           <router-link to="/">
-            <button class="cancel">Home</button></router-link
-          >
+            <button class="cancel" style=" border: 1px solid #0f0f0f;
+      background-color:#882481e4;
+      color: white;
+      border-radius: 4px;
+      padding: 5px 13px 7px;
+      margin-top: 10px;
+      width: 155px;
+      font-size: 22px;">Home</button></router-link>
         </div>
       </div>
     </div>
@@ -369,11 +374,11 @@ export default {
           this.timeCounter.hours = Math.floor(
             ((parseInt(this.examData.time) * 60 * 1000) %
               (1000 * 60 * 60 * 24)) /
-              (1000 * 60 * 60)
+            (1000 * 60 * 60)
           );
           this.timeCounter.minutes = Math.floor(
             ((parseInt(this.examData.time) * 60 * 1000) % (1000 * 60 * 60)) /
-              (1000 * 60)
+            (1000 * 60)
           );
           this.timeCounter.seconds = Math.floor(
             ((parseInt(this.examData.time) * 60 * 1000) % (1000 * 60)) / 1000
@@ -444,29 +449,37 @@ export default {
     min-height: 67%;
     left: 50%;
     top: 17%;
+    box-shadow: 0px 0px 14px 0px black;
     transform: translate(-50%, 0);
-    border-radius: $bRadius;
+    border-radius: 20px;
     color: $titleColor;
     font-weight: 900 !important;
-    background-color: $mainColor;
+    background-image: url(../../../assets/books-7134885_960_720.jpg);
+    background-size: cover;
     border: 1px solid $titleColor;
   }
+
   .exam-title {
     position: fixed;
     top: 10px;
     left: 50%;
+    background-image: url(../../../assets/books-7134885_960_720.jpg);
+    background-size: auto;
     transform: translate(-50%, -125%);
     width: 100%;
     color: white;
-    background-color: #883fb3;
+    box-shadow: 0px 0px 14px 0px black;
+    border-radius: $bRadius;
+
     h1 {
       border-bottom: 1px solid $titleColor;
       width: fit-content;
       margin: auto;
       margin-bottom: 10px;
       color: white;
-      background-color: #883fb3;
+     
     }
+
     span {
       font-family: monospace;
       width: fit-content;
@@ -477,24 +490,29 @@ export default {
       text-shadow: 1px 1px black;
     }
   }
+
   .ques-container {
     display: none;
     flex-direction: column;
     width: 100%;
+
     .ques-tit-row {
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       border-bottom: 1px solid $titleColor;
       padding-bottom: 5px;
+
       .ques-tit-num {
         font-size: 15px;
       }
+
       i {
         font-size: 10px;
         padding-left: 3px;
         padding-right: 10px;
       }
+
       p {
         border: none;
         outline: none;
@@ -505,6 +523,7 @@ export default {
         margin: 0;
       }
     }
+
     .ques-choise-row {
       padding: 4px;
       min-height: 40px;
@@ -516,6 +535,7 @@ export default {
       cursor: pointer;
       padding-right: 12px;
       border-radius: 10px;
+
       p {
         border: none;
         outline: none;
@@ -526,6 +546,7 @@ export default {
         display: inline-block;
         margin: 0;
       }
+
       .ques-choice-num {
         font-size: 13px;
         border: none;
@@ -535,8 +556,9 @@ export default {
         margin-left: 5px;
         text-align: center;
         padding: 5px 7px;
-        color: white;
+        color: rgb(0, 0, 0);
       }
+
       i.correct-answer {
         border-radius: 50%;
         padding: 5px;
@@ -544,20 +566,24 @@ export default {
         opacity: 0;
         cursor: pointer;
       }
+
       input::placeholder {
         color: rgba(4, 70, 175, 0.549);
         font-family: cursive;
         font-style: italic;
       }
     }
+
     .ques-choise-row.correct-answer {
       box-shadow: #6fe16f 0px 0px 0px 2px inset;
       background-color: #a5f4a594;
     }
+
     .btns {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
+
       .add-choice {
         border: none;
         outline: none;
@@ -574,11 +600,13 @@ export default {
       }
     }
   }
+
   .next-prev-btns {
     position: absolute;
     bottom: 41px;
     left: 50%;
     transform: translateX(-50%);
+
     .next {
       outline: none;
       background-color: $mainColor;
@@ -590,6 +618,7 @@ export default {
       padding: 14px 33px;
       border-radius: $bRadius;
     }
+
     .prev {
       border: 1px solid $titleColor;
       outline: none;
@@ -603,11 +632,13 @@ export default {
     }
   }
 }
+
 .start-exam .finish-exam {
   left: 0;
   bottom: -80px;
   width: 100%;
   text-align: center;
+
   button {
     outline: none;
     background-color: $mainColor;
@@ -619,7 +650,9 @@ export default {
     border-radius: $bRadius;
   }
 }
+
 .start-exam {
+
   .finish-exam-alert,
   .timeout-alert {
     color: red;
@@ -631,6 +664,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.621);
     z-index: 1000;
     display: none;
+
     .body {
       background-color: aliceblue;
       width: 30%;
@@ -641,12 +675,14 @@ export default {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+
       .alert-btns {
         display: flex;
         justify-content: center;
         align-items: center;
+
         .submit-finish {
-          background-color: #883fb3;
+          background-color: #882481e4;
           color: white;
           font-weight: 500;
           padding: 4px 9px;
@@ -656,6 +692,7 @@ export default {
           margin-right: 5px;
           font-size: 14px;
         }
+
         .submit-finish:hover {
           background-color: #099e09;
         }
@@ -675,6 +712,7 @@ export default {
     }
   }
 }
+
 .start-exam .result-popup {
   position: fixed;
   left: 0;
@@ -686,6 +724,7 @@ export default {
   display: none;
   justify-content: center;
   align-items: center;
+
   .body {
     width: 50%;
     color: black;
@@ -694,184 +733,224 @@ export default {
     text-align: center;
     border-radius: 11px;
     padding-bottom: 30px;
+
     p {
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 30px;
     }
+
     th {
       font-size: 17px;
       font-weight: 500;
     }
+
     .total,
     .result,
     .percentage {
-      font-size: 19px;
-      font-weight: 500;
+      font-size: 30px;
+      font-weight: 800;
       padding-top: 15px;
       letter-spacing: 1px;
     }
+
     button {
-      border: 1px solid #4175ee;
-      background-color: #883fb3;
+      border: 1px solid #7fa6ff;
+      background-color: #882481e4;
       color: white;
       border-radius: 4px;
       padding: 5px 13px 7px;
       margin-top: 10px;
+
     }
+
     button:hover {
       background-color: #099e09;
     }
   }
 }
+
 //Media Queries
 @media (max-width: 1100px) {
   .start-exam .container-fluid {
     width: 60% !important;
   }
 }
+
 @media (max-width: 990px) {
   .start-exam .container-fluid {
     width: 70% !important;
   }
+
   .start-exam {
+
     .finish-exam-alert .body,
     .timeout-alert .body {
       width: 38%;
     }
   }
+
   .start-exam .result-popup .body {
     width: 62%;
   }
 }
+
 @media (max-width: 767px) {
   .start-exam .container-fluid {
     width: 85% !important;
     min-height: 60%;
     padding-top: 30px !important;
+
     .exam-title h1 {
       font-size: 23px;
     }
+
     .ques-container {
       .ques-tit-row {
         margin-bottom: 0;
+
         p {
           font-size: 17px;
         }
       }
+
       .ques-choise-row {
         margin-top: 9px;
+
         .ques-choice-num {
           font-size: 9px;
           padding: 2px 5px;
         }
+
         i.correct-answer {
           padding: 2px !important;
         }
+
         p {
           font-size: 14px;
         }
       }
     }
   }
+
   .start-exam {
     button {
       font-size: 12px;
     }
   }
+
   .start-exam {
+
     .finish-exam-alert .body,
     .timeout-alert .body {
       width: 40%;
+
       p {
         font-size: 13px;
       }
     }
   }
+
   .start-exam .result-popup .body {
     p {
       font-size: 15px;
     }
+
     th {
-      font-size: 14px;
+      font-size: 11px;
     }
+
     td {
-      font-size: 16px;
+      font-size: 30px;
+      font-weight: 800;
+      padding-top: 15px;
+      letter-spacing: 1px
     }
+
     button {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 }
+
 @media (max-width: 530px) {
   .start-exam .ques-container {
     margin-left: 20px !important;
     margin-right: 20px !important;
     padding: 0 !important;
   }
+
   .start-exam .ques-container .ques-tit-row .ques-tit {
     font-size: 14px;
   }
+
   .start-exam .ques-container .ques-choise-row .ques-choice-num {
     font-size: 9px;
   }
+
   .start-exam .ques-container .ques-choise-row p {
     font-size: 12px;
   }
+
   .start-exam {
+
     .finish-exam-alert .body,
     .timeout-alert .body {
       width: 70%;
       padding: 10px;
+
       p {
         font-size: 12px;
       }
     }
   }
+
   .start-exam .result-popup .body {
     width: 90%;
-    p {
-      font-size: 12px;
-    }
-    th {
-      font-size: 11px;
-    }
-    td {
-      font-size: 13px !important;
-    }
-    button {
-      font-size: 10px;
+
+
+
+    button:hover {
+      background-color: #099e09;
     }
   }
 }
+
 @media (max-width: 470px) {
   .start-exam .container-fluid {
     width: 95% !important;
   }
+
   .start-exam .exam-title h1 {
     font-size: 16px;
   }
+
   .start-exam .ques-container {
     padding-left: 5px;
     padding-right: 5px;
+
     .ques-tit-row .ques-tit {
       font-size: 13px;
     }
+
     .ques-choise-row {
       margin-left: 10px;
     }
   }
+
   .start-exam {
     button {
       font-size: 10px !important;
     }
   }
 }
+
 @media (max-width: 390px) {
   .start-exam .ques-container {
     .correct-answer {
       font-size: 9px;
     }
+
     .ques-choise-row {
       width: 85%;
     }

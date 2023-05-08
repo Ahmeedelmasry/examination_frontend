@@ -227,7 +227,7 @@ export default {
   }
 }
 .see-results button {
-  background-color: #883fb3;
+  background-color: #882481e4;
   color: $titleColor;
   padding: 9px 29px;
   border: 1px solid #283d3b;
