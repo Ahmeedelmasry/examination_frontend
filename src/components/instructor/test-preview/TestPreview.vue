@@ -3,10 +3,12 @@
   <div class="test-preview mb-4">
     <TheLoading />
     <div class="container-fluid">
-      <div class="exam-title">
-        <h1 class="text-center">{{ examPrev.examDetails.title }}</h1>
-      </div>
       <div class="row">
+        <div class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0">
+          <div class="exam-title">
+            <h1 class="text-center w-100">{{ examPrev.examDetails.title }}</h1>
+          </div>
+        </div>
         <div
           class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 ml-auto mr-auto ques-container mb-4"
           v-for="(question, index) in examPrev.examDetails.questions"
@@ -105,9 +107,9 @@ export default {
   box-shadow: 0px 0px 8px 0px black;
   margin-top: 20px;
   font-weight: 900;
-  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-image: url("../../../assets/books-7134885_960_720.jpg");
   background-size: auto;
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 10px;
 }
 .test-preview .ques-container {
@@ -120,7 +122,7 @@ export default {
   border-radius: 10px;
   color: $titleColor;
   font-weight: 900;
-  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-image: url("../../../assets/books-7134885_960_720.jpg");
   background-size: cover;
   border: 1px solid $titleColor;
   .ques-tit-row {
@@ -200,7 +202,7 @@ export default {
   width: fit-content;
   margin: auto;
   border-radius: 20px;
-  background-image: url("../../../assets/books-7134885_960_720.jpg") ;
+  background-image: url("../../../assets/books-7134885_960_720.jpg");
   background-size: auto;
   border: 1px solid $titleColor;
   padding: 10px 30px;
@@ -216,7 +218,6 @@ export default {
     font-size: 15px;
     text-align: center;
     font-weight: 900;
-   
   }
   p {
     font-size: 13px;

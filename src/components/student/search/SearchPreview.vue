@@ -76,7 +76,7 @@
               </div>
               <div class="row">
                 <div class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" v-for="(exam, index) in getAllExams" :key="index">
-                  <div class="exam card pb-4 position-relative" style="width: 15rem;">
+                  <div class="exam card pb-4 position-relative">
                     <img
                       src="../../../assets/quiz.jpg"
                       class="exam-img-top" alt="..." @click="openExam(
@@ -509,7 +509,7 @@ export default {
     background-image: url("../../../assets/books-7431944_960_720.jpg");
     background-size: cover;
     border-radius: $bRadius;
-    overflow: hidden;
+    overflow-x: hidden;
     margin-top: 30px;
     width: 97%;
     margin-left: auto;

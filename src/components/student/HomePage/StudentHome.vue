@@ -13,28 +13,58 @@
               <div class="empty-exams" v-if="!getAllExams.length > 0">
                 <p>There is no Exams added yet !</p>
               </div>
-              <div v-for="inst in getAllExams" :key="inst.instructorId" class="row">
+              <div
+                v-for="inst in getAllExams"
+                :key="inst.instructorId"
+                class="row"
+              >
                 <div class="instruc-div" :id="inst.instructorId">
-                  <router-link :to="`/search-preview/${inst.instructorId}`" class="d-block"
-                    style="width: fit-content; margin: auto">
-                    <img v-if="inst.profileImg == ''" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
+                  <router-link
+                    :to="`/search-preview/${inst.instructorId}`"
+                    class="d-block"
+                    style="width: fit-content; margin: auto"
+                  >
+                    <img
+                      v-if="inst.profileImg == ''"
+                      src="https://e.top4top.io/p_2363fihh21.jpg"
+                      alt=""
+                    />
                     <img v-else :src="inst.profileImg" alt="" />
                     <p class="instructor">
                       {{ inst.firstName }} {{ inst.lastName }}
                     </p>
                   </router-link>
                 </div>
-                <div v-for="exam in inst.exams" :key="exam.id" :id="exam.id" :data-time="exam.time"
-                  :data-degree="exam.totalDegree" class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad" :style="exam.status == 'Pending'
-                    ? 'pointer-events: none'
-                    : 'pointer-events: unset'
-                    ">
-                  <div class="exam card pb-4 position-relative" style="width: 18rem">
-                    <img src="../../../assets/quiz.jpg" class="exam-img-top" alt="..." @click="
-                      openExam(inst.instructorId, inst.studentId, exam.examId)
-                      " />
+                <div
+                  v-for="exam in inst.exams"
+                  :key="exam.id"
+                  :id="exam.id"
+                  :data-time="exam.time"
+                  :data-degree="exam.totalDegree"
+                  class="col-6 col-sm-4 col-lg-3 mb-2 exam-dad"
+                  :style="
+                    exam.status == 'Pending'
+                      ? 'pointer-events: none'
+                      : 'pointer-events: unset'
+                  "
+                >
+                  <div
+                    class="exam card pb-4 position-relative"
+                    style="width: 18rem"
+                  >
+                    <img
+                      src="../../../assets/quiz.jpg"
+                      class="exam-img-top"
+                      alt="..."
+                      @click="
+                        openExam(inst.instructorId, inst.studentId, exam.examId)
+                      "
+                    />
                     <div class="exam-body card-body">
-                      <h5 v-if="exam.title.length > 15" class="exam-title card-title">
+                      <h5
+                        v-if="exam.title.length > 15"
+                        class="exam-title card-title"
+                      >
                         {{ exam.title.slice(0, 15) }} ...
                       </h5>
                       <h5 v-else class="exam-title card-title">
@@ -49,9 +79,13 @@
                       <p class="exam-end-time">
                         End: {{ exam.endTimeAt.slice(0, 5) }}
                       </p>
-                      <p class="exam-status" :style="(exam.status == 'Closed' && { color: 'red' }) ||
-                        (exam.status == 'Pending' && { color: 'orange' })
-                        ">
+                      <p
+                        class="exam-status"
+                        :style="
+                          (exam.status == 'Closed' && { color: 'red' }) ||
+                          (exam.status == 'Pending' && { color: 'orange' })
+                        "
+                      >
                         {{ exam.status }}
                       </p>
                     </div>
@@ -70,21 +104,37 @@
               <div class="empty-urls" v-if="!savedUrlsData.length > 0">
                 <p>There is no URLs Saved yet !</p>
               </div>
-              <ul class="list-unstyled pt-2" v-for="urlData in savedUrlsData" :key="urlData._id">
+              <ul
+                class="list-unstyled pt-2"
+                v-for="urlData in savedUrlsData"
+                :key="urlData._id"
+              >
                 <div :id="urlData.id" class="instruc-div">
                   <router-link :to="`/search-preview/${urlData.instructorId}`">
-                    <img v-if="!urlData.profileImg" src="https://e.top4top.io/p_2363fihh21.jpg" alt="" />
+                    <img
+                      v-if="!urlData.profileImg"
+                      src="https://e.top4top.io/p_2363fihh21.jpg"
+                      alt=""
+                    />
                     <img v-else :src="urlData.profileImg" alt="" />
                   </router-link>
                   <p class="instructor">
                     {{ urlData.firstName }} {{ urlData.lastName }}
                   </p>
                 </div>
-                <li v-for="li in urlData.urls" :key="li._id" class="d-flex justify-content-between align-items-center">
+                <li
+                  v-for="li in urlData.urls"
+                  :key="li._id"
+                  class="d-flex justify-content-between align-items-center"
+                >
                   <a :href="li.link" target="_blank">
                     <span>{{ li.desc }}</span>
                   </a>
-                  <button href="#" class="del-url" @click="deleteUrl(urlData.instructorId, li._id)">
+                  <button
+                    href="#"
+                    class="del-url"
+                    @click="deleteUrl(urlData.instructorId, li._id)"
+                  >
                     <i class="fa fa-close"></i>
                   </button>
                 </li>
@@ -156,6 +206,7 @@ export default {
       "doDeleteStURL",
       "checkIfExamed",
       "doCheckAuth",
+      "getSharedInstInfo",
     ]),
     closeResultPop() {
       document.querySelector(".student-home .result-popup").style.display =
@@ -310,12 +361,32 @@ export default {
         window.dispatchEvent(new KeyboardEvent("keydown", { keyCode: 27 }));
         let userId = checkAuth._id;
         await this.doGetStExams(userId);
+        try {
+          for (let i = 0; i < this.studentHome.stExams.length; i++) {
+            const instInfo = await this.getSharedInstInfo(
+              this.studentHome.stExams[i].instructorId
+            );
+            this.studentHome.stExams[i].firstName = instInfo.firstName;
+            this.studentHome.stExams[i].lastName = instInfo.lastName;
+            this.studentHome.stExams[i].profileImg = instInfo.profileImg;
+          }
+        } catch (error) {
+          console.log(error);
+        }
         this.getAllExams = this.studentHome.stExams;
-        setTimeout(async () => {
-          await this.doGetStExams(userId);
-          this.getAllExams = this.studentHome.stExams;
-        }, 1000 * 60);
         await this.doGetStUrls(userId);
+        try {
+          for (let i = 0; i < this.studentHome.allUrls.length; i++) {
+            const instInfo = await this.getSharedInstInfo(
+              this.studentHome.allUrls[i].instructorId
+            );
+            this.studentHome.allUrls[i].firstName = instInfo.firstName;
+            this.studentHome.allUrls[i].lastName = instInfo.lastName;
+            this.studentHome.allUrls[i].profileImg = instInfo.profileImg;
+          }
+        } catch (error) {
+          console.log(error);
+        }
         this.savedUrlsData = this.studentHome.allUrls;
         document.querySelector(".student-home .loading").style.cssText = `
         opacity: 0; visibility: hidden
@@ -594,7 +665,6 @@ export default {
   }
 }
 
-
 .student-home .result-popup {
   position: fixed;
   left: 0;
@@ -656,7 +726,6 @@ export default {
 
 //Media Queries
 @media (max-width: 990px) {
-
   .student-home .add-exam-div,
   .student-home .add-url-div {
     width: 100%;

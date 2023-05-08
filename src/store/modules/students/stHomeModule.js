@@ -31,6 +31,15 @@ export default {
         })
         .catch((err) => console.log(err));
     },
+    async getSharedInstInfo(context, payload) {
+      let instData;
+      await fetch(`${Store.state.apiLink}/users/profile/${payload}`)
+        .then((res) => res.json())
+        .then((data) => {
+          instData = data;
+        });
+      return instData;
+    },
     async doGetStUrls(context, userId) {
       await fetch(`${Store.state.apiLink}/saved-urls/getst-urls/${userId}`)
         .then((res) => res.json())

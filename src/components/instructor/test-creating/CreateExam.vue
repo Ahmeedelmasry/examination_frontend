@@ -959,7 +959,7 @@ export default {
     input::placeholder {
       font-size: 20px;
       font-style: italic;
-      color: rgb(255, 255, 255);
+      color: rgba(255, 255, 255, 0.718) !important;
     }
   }
 

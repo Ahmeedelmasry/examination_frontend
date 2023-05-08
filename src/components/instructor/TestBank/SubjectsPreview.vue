@@ -3,25 +3,44 @@
   <div class="subject-preview mb-4">
     <TheLoading />
     <div class="container-fluid">
-      <div class="exam-title">
-        <h1 class="text-center">{{ SubjectPreview.subjData.title }}</h1>
-      </div>
       <div class="row">
-        <div v-for="(ques, index) in SubjectPreview.subjData.questions" :key="ques.id" :id="ques.id"
-          class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 ml-auto mr-auto ques-container mb-4">
+        <div class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto p-0">
+          <div class="exam-title">
+            <h1 class="text-center w-100">{{ SubjectPreview.subjData.title }}</h1>
+          </div>
+        </div>
+        <div
+          v-for="(ques, index) in SubjectPreview.subjData.questions"
+          :key="ques.id"
+          :id="ques.id"
+          class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 ml-auto mr-auto ques-container mb-4"
+        >
           <div class="ques-tit-row">
-            <span class="ques-tit-num">{{ index + 1 }}</span><i class="fa fa-arrow-right"></i>
+            <span class="ques-tit-num">{{ index + 1 }}</span
+            ><i class="fa fa-arrow-right"></i>
             <input class="ques-tit" disabled :value="ques.question" />
           </div>
           <div class="choices">
-            <div v-for="(choice, index) in ques.choices" :key="index" :id="index" :class="(index + 1 == ques.correctAnswerColumn &&
-              'ques-choise-row position-relative correct-answer') ||
-              `ques-choise-row position-relative`
-              ">
+            <div
+              v-for="(choice, index) in ques.choices"
+              :key="index"
+              :id="index"
+              :class="
+                (index + 1 == ques.correctAnswerColumn &&
+                  'ques-choise-row position-relative correct-answer') ||
+                `ques-choise-row position-relative`
+              "
+            >
               <span class="ques-choice-num" v-if="choice != ''">{{
                 index + 1
               }}</span>
-              <input class="ques-choice" disabled placeholder="Choice" :value="choice" v-if="choice != ''" />
+              <input
+                class="ques-choice"
+                disabled
+                placeholder="Choice"
+                :value="choice"
+                v-if="choice != ''"
+              />
             </div>
           </div>
         </div>
@@ -73,7 +92,7 @@ export default {
 
 .subject-preview .exam-title h1 {
   color: white;
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 7.5px;
   font-weight: 900;
   box-shadow: 0px 0px 14px 0px black;
@@ -278,7 +297,6 @@ export default {
 }
 
 .subject-preview .degree-time {
-
   .degree,
   .time {
     box-shadow: 0px 0px 7px -5px black;
